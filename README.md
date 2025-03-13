@@ -1,7 +1,7 @@
 # Control Toolbox 🎛️
 
 [![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![CI](https://github.com/yourusername/control-toolbox/actions/workflows/ci.yml/badge.svg)](https://github.com/yourusername/control-toolbox/actions)
+[![CI](https://github.com/ArshiaS07/control-toolbox/actions/workflows/ci.yml/badge.svg)](https://github.com/ArshiaS07/control-toolbox/actions)
 
 A modern C++ framework for control system simulation and analysis, featuring:
 - State-space system modeling 📈
