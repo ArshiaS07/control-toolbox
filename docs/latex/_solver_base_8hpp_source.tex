@@ -1,0 +1,48 @@
+\doxysection{Solver\+Base.\+hpp}
+\hypertarget{_solver_base_8hpp_source}{}\label{_solver_base_8hpp_source}\index{include/control\_toolbox/solvers/SolverBase.hpp@{include/control\_toolbox/solvers/SolverBase.hpp}}
+\mbox{\hyperlink{_solver_base_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ SPDX-\/FileCopyrightText:\ 2025\ Arshia\ Saffari}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ GNU\ GPLv3}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_system_traits_8hpp}{control\_toolbox/SystemTraits.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_control_toolbox}{ControlToolbox}}\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Derived,\ \textcolor{keyword}{typename}\ System>}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{SolverBase}}\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{StateVector}}\ =\ \textcolor{keyword}{typename}\ System::StateVector;\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{TimeType}}\ =\ double;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{StateVector}}\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab785ee4a2a9d75c6704f70192f7d072b}{step}}(System\&\ system,\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{TimeType}}\ t,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{StateVector}}\&\ x,\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{TimeType}}\ dt)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}Derived*\textcolor{keyword}{>}(\textcolor{keyword}{this})-\/>step\_impl(system,\ t,\ x,\ dt);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a45f0f76a035126a2e551b6102ce02e61}{set\_stop\_condition}}(std::function<\textcolor{keywordtype}{bool}(\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{TimeType}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{StateVector}}\&)>\ condition)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a33442bb69fb93a38ce7c3732e898834d}{stop\_condition\_}}\ =\ std::move(condition);}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ad248bdc90e853041f64456dd3d755934}{set\_max\_time}}(\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{TimeType}}\ max\_time)\ \{\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a96f9f696029453db30324482b1554610}{max\_time\_}}\ =\ max\_time;\ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_aa207f3459ad772f2877544a6bb9d9cd2}{should\_stop}}(\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{TimeType}}\ t,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{StateVector}}\&\ x)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a33442bb69fb93a38ce7c3732e898834d}{stop\_condition\_}}\ ?\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a33442bb69fb93a38ce7c3732e898834d}{stop\_condition\_}}(t,\ x)\ :\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a79d2b6d01eb79f1eb180e221e589324b}{default\_stop}}(t);}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a89ccd870d0c0d28befb37e3d2547a637}{\string~SolverBase}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a79d2b6d01eb79f1eb180e221e589324b}{default\_stop}}(\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{TimeType}}\ t)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ t\ >\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a96f9f696029453db30324482b1554610}{max\_time\_}};\ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ std::function<bool(\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{TimeType}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{StateVector}}\&)>\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a33442bb69fb93a38ce7c3732e898834d}{stop\_condition\_}};\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{TimeType}}\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a96f9f696029453db30324482b1554610}{max\_time\_}}\ =\ 10.0;\ }
+\DoxyCodeLine{00104\ \ \ \ \ \};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \}\ \textcolor{comment}{//\ namespace\ ControlToolbox}}
+
+\end{DoxyCode}

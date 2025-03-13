@@ -1,0 +1,29 @@
+\doxysection{Euler\+Solver.\+hpp}
+\hypertarget{_euler_solver_8hpp_source}{}\label{_euler_solver_8hpp_source}\index{include/control\_toolbox/solvers/EulerSolver.hpp@{include/control\_toolbox/solvers/EulerSolver.hpp}}
+\mbox{\hyperlink{_euler_solver_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ SPDX-\/FileCopyrightText:\ 2025\ Arshia\ Saffari}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ GNU\ GPLv3}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_solver_base_8hpp}{SolverBase.hpp}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_control_toolbox}{ControlToolbox}}\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ System>}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_control_toolbox_1_1_euler_solver}{EulerSolver}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{SolverBase}}<EulerSolver<System>,\ System>\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_control_toolbox_1_1_euler_solver_a061fc091bb3614958f95285e5dd578ff}{Base}}\ =\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{SolverBase<EulerSolver<System>}},\ System>;\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }typename\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{Base::StateVector}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }typename\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Base::TimeType}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_euler_solver_a1d207277188004c9f81c45d5245e8bdb}{StateVector}}\ \mbox{\hyperlink{class_control_toolbox_1_1_euler_solver_aed0f8edc8e1b85eedf5cef7e487ecf46}{step\_impl}}(System\&\ system,\ \mbox{\hyperlink{class_control_toolbox_1_1_euler_solver_aef13060863cef6664202c63414ffd99c}{TimeType}}\ t,}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_control_toolbox_1_1_euler_solver_a1d207277188004c9f81c45d5245e8bdb}{StateVector}}\&\ x,\ \mbox{\hyperlink{class_control_toolbox_1_1_euler_solver_aef13060863cef6664202c63414ffd99c}{TimeType}}\ dt)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ dx\ =\ system.computeSystemDerivative(t,\ x,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x\ +\ dt\ *\ dx;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \}\ \textcolor{comment}{//\ namespace\ ControlToolbox}}
+
+\end{DoxyCode}

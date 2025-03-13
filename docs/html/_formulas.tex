@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage{iftex}
+\usepackage{ifthen}
+\usepackage{epsfig}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\ifPDFTeX
+\usepackage{newunicodechar}
+  \makeatletter
+    \def\doxynewunicodechar#1#2{%
+    \@tempswafalse
+    \edef\nuc@tempa{\detokenize{#1}}%
+    \if\relax\nuc@tempa\relax
+      \nuc@emptyargerr
+    \else
+      \edef\@tempb{\expandafter\@car\nuc@tempa\@nil}%
+      \nuc@check
+      \if@tempswa
+        \@namedef{u8:\nuc@tempa}{#2}%
+      \fi
+    \fi
+  }
+  \makeatother
+  \doxynewunicodechar{⁻}{${}^{-}$}% Superscript minus
+  \doxynewunicodechar{²}{${}^{2}$}% Superscript two
+  \doxynewunicodechar{³}{${}^{3}$}% Superscript three
+
+\fi
+\pagestyle{empty}
+\begin{document}
+\[y_{n+1} = y_n + h \cdot f(t_n, y_n)
+\]
+\pagebreak
+
+$ h $
+\pagebreak
+
+$ f $
+\pagebreak
+
+\[y_{n+1} = y_n + \frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4)
+\]
+\pagebreak
+
+$ k_1 = f(t_n, y_n) $
+\pagebreak
+
+$ k_2 = f(t_n + h/2, y_n + hk_1/2) $
+\pagebreak
+
+$ k_3 = f(t_n + h/2, y_n + hk_2/2) $
+\pagebreak
+
+$ k_4 = f(t_n + h, y_n + hk_3) $
+\pagebreak
+
+\[r(t) = A \sin(\omega t)
+\]
+\pagebreak
+
+$ A $
+\pagebreak
+
+$ \omega $
+\pagebreak
+
+$ e = r - y $
+\pagebreak
+
+\[d_k = \frac{2Nk_d(e_k - e_{k-1}) - (N\Delta t - 2)d_{k-1}}{N\Delta t + 2}
+\]
+\pagebreak
+
+\[i_k = i_{k-1} + k_i e_k \Delta t
+\]
+\pagebreak
+
+$ u = k_p e + d_k + i_k $
+\pagebreak
+
+\[\begin{cases}
+\dot{x}_1 = x_2 \\
+\dot{x}_2 = \frac{1}{m}(u - c x_2 - k x_1)
+\end{cases}
+\]
+\pagebreak
+
+\end{document}

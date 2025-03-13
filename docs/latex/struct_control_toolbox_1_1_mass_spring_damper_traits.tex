@@ -1,0 +1,64 @@
+\doxysection{Control\+Toolbox\+::Mass\+Spring\+Damper\+Traits Struct Reference}
+\hypertarget{struct_control_toolbox_1_1_mass_spring_damper_traits}{}\label{struct_control_toolbox_1_1_mass_spring_damper_traits}\index{ControlToolbox::MassSpringDamperTraits@{ControlToolbox::MassSpringDamperTraits}}
+
+
+System traits for mass-\/spring-\/damper system.  
+
+
+Inheritance diagram for Control\+Toolbox\+::Mass\+Spring\+Damper\+Traits\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{struct_control_toolbox_1_1_mass_spring_damper_traits}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_control_toolbox_1_1_mass_spring_damper_traits_1_1_parameters}{Parameters}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits}{Control\+Toolbox\+::\+System\+Traits$<$ 2, 1, 1 $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_ae178c60fd7f7dc5fd99b8cb96b76deaf}{State\+Vector}}
+\begin{DoxyCompactList}\small\item\em State vector type (Nx1 Eigen column vector) \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_a528fcbd3a9f0ba749916d8897c3737fd}{Input\+Vector}}
+\begin{DoxyCompactList}\small\item\em Control input vector type (Mx1 Eigen column vector) \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_a3003f34fbceb1e589bd85f88a1cacab1}{Output\+Vector}}
+\begin{DoxyCompactList}\small\item\em System output vector type (Px1 Eigen column vector) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits}{Control\+Toolbox\+::\+System\+Traits$<$ 2, 1, 1 $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr int \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_a506a045a4ccd6ecb6ee133b287369270}{State\+Dimension}}
+\begin{DoxyCompactList}\small\item\em State space dimension. \end{DoxyCompactList}\item 
+static constexpr int \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_a21457e7781d1ef289c267f30f107bb28}{Input\+Dimension}}
+\begin{DoxyCompactList}\small\item\em Input space dimension. \end{DoxyCompactList}\item 
+static constexpr int \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_a6c9431ca19737e2447d950304bdae5cb}{Output\+Dimension}}
+\begin{DoxyCompactList}\small\item\em Output space dimension. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr bool \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_a63ec2908ce68c5da2248e54358c9f4ae}{Has\+Input}}
+\begin{DoxyCompactList}\small\item\em System has control inputs. \end{DoxyCompactList}\item 
+static constexpr bool \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_a952070bfaa0269e57348bd13947cf91a}{Has\+Output}}
+\begin{DoxyCompactList}\small\item\em System has defined outputs. \end{DoxyCompactList}\item 
+static constexpr bool \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_afc410c0f19d895b788967d8b7a0eba16}{Is\+Dynamic}}
+\begin{DoxyCompactList}\small\item\em Runtime-\/sized system flag. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+System traits for mass-\/spring-\/damper system. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State\+Dim} & 2 (position and velocity) \\
+\hline
+{\em Input\+Dim} & 1 (control force) \\
+\hline
+{\em Output\+Dim} & 1 (position measurement) \\
+\hline
+\end{DoxyTemplParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+examples/\+Mass\+Spring\+Damper/\mbox{\hyperlink{_mass_spring_damper_8cpp}{Mass\+Spring\+Damper.\+cpp}}\end{DoxyCompactItemize}

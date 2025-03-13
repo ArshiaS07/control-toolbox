@@ -1,0 +1,190 @@
+\doxysection{Control\+Toolbox\+::RK4\+Solver\texorpdfstring{$<$}{<} System \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_control_toolbox_1_1_r_k4_solver}{}\label{class_control_toolbox_1_1_r_k4_solver}\index{ControlToolbox::RK4Solver$<$ System $>$@{ControlToolbox::RK4Solver$<$ System $>$}}
+
+
+Classical 4th-\/order Runge-\/\+Kutta numerical integrator.  
+
+
+
+
+{\ttfamily \#include $<$RK4\+Solver.\+hpp$>$}
+
+Inheritance diagram for Control\+Toolbox\+::RK4\+Solver\texorpdfstring{$<$}{<} System \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_control_toolbox_1_1_r_k4_solver}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{Indent}\textbf{ Type Inheritance}\par
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver_adc72f219b3c725a74a6bff7a8a6d0a0c}{Base}} = \mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{Solver\+Base}}$<$\mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver}{RK4\+Solver}}$<$System$>$, System$>$
+\begin{DoxyCompactList}\small\item\em \doxylink{class_control_toolbox_1_1_r_k4_solver_adc72f219b3c725a74a6bff7a8a6d0a0c}{Base} class type. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver_af93d3fd2fc6ed793e04cd3f8e0fa8195}{State\+Vector}}
+\begin{DoxyCompactList}\small\item\em State vector type from system. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver_a362184dbf49417dae3abce96ecb0b46e}{Time\+Type}}
+\begin{DoxyCompactList}\small\item\em Time representation type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{Control\+Toolbox\+::\+Solver\+Base$<$ RK4\+Solver$<$ System $>$, System $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}}
+\begin{DoxyCompactList}\small\item\em State vector type from system. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}}
+\begin{DoxyCompactList}\small\item\em Time representation type. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}}
+\begin{DoxyCompactList}\small\item\em State vector type from system. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}}
+\begin{DoxyCompactList}\small\item\em Time representation type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver_af93d3fd2fc6ed793e04cd3f8e0fa8195}{State\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver_a925401b7fe63106482066f490e0189bb}{step\+\_\+impl}} (System \&system, \mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver_a362184dbf49417dae3abce96ecb0b46e}{Time\+Type}} t, const \mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver_af93d3fd2fc6ed793e04cd3f8e0fa8195}{State\+Vector}} \&x, \mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver_a362184dbf49417dae3abce96ecb0b46e}{Time\+Type}} dt)
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} Import time type \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{Control\+Toolbox\+::\+Solver\+Base$<$ RK4\+Solver$<$ System $>$, System $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab785ee4a2a9d75c6704f70192f7d072b}{step}} (System \&system, \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}} t, const \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}} \&x, \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}} dt)
+\begin{DoxyCompactList}\small\item\em Execute single integration step. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a89ccd870d0c0d28befb37e3d2547a637}{\texorpdfstring{$\sim$}{\string~}\+Solver\+Base}} ()=default
+\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab785ee4a2a9d75c6704f70192f7d072b}{step}} (System \&system, \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}} t, const \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}} \&x, \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}} dt)
+\begin{DoxyCompactList}\small\item\em Execute single integration step. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a89ccd870d0c0d28befb37e3d2547a637}{\texorpdfstring{$\sim$}{\string~}\+Solver\+Base}} ()=default
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a45f0f76a035126a2e551b6102ce02e61}{set\+\_\+stop\+\_\+condition}} (std\+::function$<$ bool(\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}}, const \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}} \&)$>$ condition)
+\begin{DoxyCompactList}\small\item\em Set custom simulation stop condition. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ad248bdc90e853041f64456dd3d755934}{set\+\_\+max\+\_\+time}} (\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}} max\+\_\+time)
+\begin{DoxyCompactList}\small\item\em Set maximum simulation duration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a45f0f76a035126a2e551b6102ce02e61}{set\+\_\+stop\+\_\+condition}} (std\+::function$<$ bool(\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}}, const \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}} \&)$>$ condition)
+\begin{DoxyCompactList}\small\item\em Set custom simulation stop condition. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ad248bdc90e853041f64456dd3d755934}{set\+\_\+max\+\_\+time}} (\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}} max\+\_\+time)
+\begin{DoxyCompactList}\small\item\em Set maximum simulation duration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_aa207f3459ad772f2877544a6bb9d9cd2}{should\+\_\+stop}} (\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}} t, const \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}} \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate stop conditions. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_aa207f3459ad772f2877544a6bb9d9cd2}{should\+\_\+stop}} (\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}} t, const \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}} \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate stop conditions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{Control\+Toolbox\+::\+Solver\+Base$<$ RK4\+Solver$<$ System $>$, System $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a79d2b6d01eb79f1eb180e221e589324b}{default\+\_\+stop}} (\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}} t) const
+\begin{DoxyCompactList}\small\item\em Default time-\/based stop condition. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a79d2b6d01eb79f1eb180e221e589324b}{default\+\_\+stop}} (\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}} t) const
+\begin{DoxyCompactList}\small\item\em Default time-\/based stop condition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{Control\+Toolbox\+::\+Solver\+Base$<$ RK4\+Solver$<$ System $>$, System $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::function$<$ bool(\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}}, const \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}} \&)$>$ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a33442bb69fb93a38ce7c3732e898834d}{stop\+\_\+condition\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Custom stop condition. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}} \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a96f9f696029453db30324482b1554610}{max\+\_\+time\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Default maximum simulation time (seconds) \end{DoxyCompactList}\item 
+std\+::function$<$ bool(\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}}, const \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}} \&)$>$ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a33442bb69fb93a38ce7c3732e898834d}{stop\+\_\+condition\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Custom stop condition. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}} \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a96f9f696029453db30324482b1554610}{max\+\_\+time\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Default maximum simulation time (seconds) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename System$>$\newline
+class Control\+Toolbox\+::\+RK4\+Solver$<$ System $>$}
+Classical 4th-\/order Runge-\/\+Kutta numerical integrator. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em System} & Type of dynamical system to solve (State\+Space\+System-\/based)\\
+\hline
+\end{DoxyTemplParams}
+Implements the standard RK4 method\+:   \[y_{n+1} = y_n + \frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4)
+\] where\+:
+\begin{DoxyItemize}
+\item $ k_1 = f(t_n, y_n) $
+\item $ k_2 = f(t_n + h/2, y_n + hk_1/2) $
+\item $ k_3 = f(t_n + h/2, y_n + hk_2/2) $
+\item $ k_4 = f(t_n + h, y_n + hk_3) $
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Inherits from \doxylink{class_control_toolbox_1_1_solver_base}{Solver\+Base} using CRTP pattern 
+
+Only logs data from first stage (k1) to avoid duplicate entries 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{class_control_toolbox_1_1_r_k4_solver_adc72f219b3c725a74a6bff7a8a6d0a0c}\index{ControlToolbox::RK4Solver$<$ System $>$@{ControlToolbox::RK4Solver$<$ System $>$}!Base@{Base}}
+\index{Base@{Base}!ControlToolbox::RK4Solver$<$ System $>$@{ControlToolbox::RK4Solver$<$ System $>$}}
+\doxysubsubsection{\texorpdfstring{Base}{Base}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_r_k4_solver_adc72f219b3c725a74a6bff7a8a6d0a0c} 
+template$<$typename System$>$ \\
+using \mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver}{Control\+Toolbox\+::\+RK4\+Solver}}$<$ System $>$\+::\+Base = \mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{Solver\+Base}}$<$\mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver}{RK4\+Solver}}$<$System$>$, System$>$}
+
+
+
+\doxylink{class_control_toolbox_1_1_r_k4_solver_adc72f219b3c725a74a6bff7a8a6d0a0c}{Base} class type. 
+
+\Hypertarget{class_control_toolbox_1_1_r_k4_solver_af93d3fd2fc6ed793e04cd3f8e0fa8195}\index{ControlToolbox::RK4Solver$<$ System $>$@{ControlToolbox::RK4Solver$<$ System $>$}!StateVector@{StateVector}}
+\index{StateVector@{StateVector}!ControlToolbox::RK4Solver$<$ System $>$@{ControlToolbox::RK4Solver$<$ System $>$}}
+\doxysubsubsection{\texorpdfstring{StateVector}{StateVector}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_r_k4_solver_af93d3fd2fc6ed793e04cd3f8e0fa8195} 
+template$<$typename System$>$ \\
+using \mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{Control\+Toolbox\+::\+Solver\+Base}}$<$ \mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver}{RK4\+Solver}}$<$ System $>$, System $>$\+::\+State\+Vector}
+
+
+
+State vector type from system. 
+
+\Hypertarget{class_control_toolbox_1_1_r_k4_solver_a362184dbf49417dae3abce96ecb0b46e}\index{ControlToolbox::RK4Solver$<$ System $>$@{ControlToolbox::RK4Solver$<$ System $>$}!TimeType@{TimeType}}
+\index{TimeType@{TimeType}!ControlToolbox::RK4Solver$<$ System $>$@{ControlToolbox::RK4Solver$<$ System $>$}}
+\doxysubsubsection{\texorpdfstring{TimeType}{TimeType}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_r_k4_solver_a362184dbf49417dae3abce96ecb0b46e} 
+template$<$typename System$>$ \\
+using \mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{Control\+Toolbox\+::\+Solver\+Base}}$<$ \mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver}{RK4\+Solver}}$<$ System $>$, System $>$\+::\+Time\+Type}
+
+
+
+Time representation type. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_control_toolbox_1_1_r_k4_solver_a925401b7fe63106482066f490e0189bb}\index{ControlToolbox::RK4Solver$<$ System $>$@{ControlToolbox::RK4Solver$<$ System $>$}!step\_impl@{step\_impl}}
+\index{step\_impl@{step\_impl}!ControlToolbox::RK4Solver$<$ System $>$@{ControlToolbox::RK4Solver$<$ System $>$}}
+\doxysubsubsection{\texorpdfstring{step\_impl()}{step\_impl()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_r_k4_solver_a925401b7fe63106482066f490e0189bb} 
+template$<$typename System$>$ \\
+\mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver_af93d3fd2fc6ed793e04cd3f8e0fa8195}{State\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver}{Control\+Toolbox\+::\+RK4\+Solver}}$<$ System $>$\+::step\+\_\+impl (\begin{DoxyParamCaption}\item[{System \&}]{system}{, }\item[{\mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver_a362184dbf49417dae3abce96ecb0b46e}{Time\+Type}}}]{t}{, }\item[{const \mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver_af93d3fd2fc6ed793e04cd3f8e0fa8195}{State\+Vector}} \&}]{x}{, }\item[{\mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver_a362184dbf49417dae3abce96ecb0b46e}{Time\+Type}}}]{dt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\texorpdfstring{$<$}{<} Import time type 
+
+Implement RK4 integration step 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em system} & System to integrate \\
+\hline
+\mbox{\texttt{ in}}  & {\em t} & Current simulation time \\
+\hline
+\mbox{\texttt{ in}}  & {\em x} & Current state vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em dt} & Time step size (seconds) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_control_toolbox_1_1_r_k4_solver_af93d3fd2fc6ed793e04cd3f8e0fa8195}{State\+Vector} New state after integration
+\end{DoxyReturn}
+Computation strategy\+:
+\begin{DoxyEnumerate}
+\item Compute k1 with logging enabled
+\item Compute k2-\/k4 with logging disabled
+\item Combine results using RK4 weights 
+\end{DoxyEnumerate}
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/control\+\_\+toolbox/solvers/\mbox{\hyperlink{_r_k4_solver_8hpp}{RK4\+Solver.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,173 @@
+\doxysection{State\+Space\+System.\+hpp}
+\hypertarget{_state_space_system_8hpp_source}{}\label{_state_space_system_8hpp_source}\index{include/control\_toolbox/StateSpaceSystem.hpp@{include/control\_toolbox/StateSpaceSystem.hpp}}
+\mbox{\hyperlink{_state_space_system_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ SPDX-\/FileCopyrightText:\ 2025\ Arshia\ Saffari}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ GNU\ GPLv3}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ STATE\_SPACE\_SYSTEM\_HPP}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ STATE\_SPACE\_SYSTEM\_HPP}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_system_traits_8hpp}{SystemTraits.hpp}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_logger_8hpp}{Logger.hpp}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <Eigen/Dense>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_control_toolbox}{ControlToolbox}}\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//\ Forward\ declaration\ for\ CRTP\ base}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Derived,\ \textcolor{keyword}{typename}\ Traits>}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system}{StateSpaceSystem}};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_control_toolbox_1_1detail}{detail}}\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Derived,\ \textcolor{keyword}{typename}\ Traits,\ \textcolor{keywordtype}{bool}\ HasInput,\ \textcolor{keywordtype}{bool}\ HasOutput>}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl}{StateSpaceSystemImpl}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Derived,\ \textcolor{keyword}{typename}\ Traits>}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl}{StateSpaceSystemImpl}}<Derived,\ Traits,\ true,\ true>\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a10e32af3790f47823a00f35d99862794}{StateVector}}\ =\ \textcolor{keyword}{typename}\ Traits::StateVector;\ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a053c3cc3907e4d150508b230f26ba842}{InputVector}}\ =\ \textcolor{keyword}{typename}\ Traits::template\ \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a053c3cc3907e4d150508b230f26ba842}{InputVector}}<\ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Traits::InputDimension>;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a31be8c4ab8c4010b3bc224c32aab1ba2}{OutputVector}}\ =\ \textcolor{keyword}{typename}\ Traits::template\ \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a31be8c4ab8c4010b3bc224c32aab1ba2}{OutputVector}}<\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Traits::OutputDimension>;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a31be8c4ab8c4010b3bc224c32aab1ba2}{OutputVector}}\ \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a13f0e3fda1c07acfb808b8534f7bd302}{computeReference}}(\textcolor{keywordtype}{double}\ t)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }Derived*\textcolor{keyword}{>}(\textcolor{keyword}{this})-\/>computeReference\_impl(t);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a053c3cc3907e4d150508b230f26ba842}{InputVector}}\ \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_af43b3bbb5156248184550b5fd0352088}{computeController}}(\textcolor{keywordtype}{double}\ t,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a31be8c4ab8c4010b3bc224c32aab1ba2}{OutputVector}}\&\ ref,\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a31be8c4ab8c4010b3bc224c32aab1ba2}{OutputVector}}\&\ out,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a10e32af3790f47823a00f35d99862794}{StateVector}}\&\ x)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }Derived*\textcolor{keyword}{>}(\textcolor{keyword}{this})-\/>computeController\_impl(t,\ ref,\ out,\ x);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Similar\ documentation\ patterns\ for\ other\ methods...}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Derived,\ \textcolor{keyword}{typename}\ Traits>}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system}{StateSpaceSystem}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl}{detail::StateSpaceSystemImpl}}<Derived,\ Traits,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ Traits::HasInput,\ Traits::HasOutput>\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{StateVector}}\ =\ \textcolor{keyword}{typename}\ Traits::StateVector;\ \ \ \ \ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{InputVector}}\ =\ \textcolor{keyword}{typename}\ Traits::template\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{InputVector}}<\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ Traits::InputDimension>;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{OutputVector}}\ =\ \textcolor{keyword}{typename}\ Traits::template\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{OutputVector}}<\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ Traits::OutputDimension>;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aa175a8de5b4a15f62e81ea2c5f184ae9}{LoggerType}}\ =\ \mbox{\hyperlink{class_control_toolbox_1_1_system_logger}{SystemLogger<Traits>}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_af3058af1705c69517e8c363f3db1c885}{Parameters}}\ =\ \textcolor{keyword}{typename}\ Traits::Parameters;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{StateVector}}\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_ae4ca1b8a65c6480128d42090db60a9bc}{computeDynamics}}(\textcolor{keywordtype}{double}\ t,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{StateVector}}\&\ x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{InputVector}}\&\ u)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }Derived*\textcolor{keyword}{>}(\textcolor{keyword}{this})-\/>computeDynamics\_impl(t,\ x,\ u);}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{bool}\ B\ =\ Traits::HasOutput,\ \textcolor{keyword}{typename}\ =\ std::enable\_if\_t<B>>}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{OutputVector}}\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a2bff38212e8217e888d8fb822899ae07}{computeOutput}}(\textcolor{keywordtype}{double}\ t,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{StateVector}}\&\ x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{InputVector}}\&\ u)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }Derived*\textcolor{keyword}{>}(\textcolor{keyword}{this})-\/>computeOutput\_impl(t,\ x,\ u);}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{StateVector}}\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9ab7f10d35bd15c5ea88ef0817c9433f}{computeSystemDerivative}}(\textcolor{keywordtype}{double}\ t,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{StateVector}}\&\ x,\ \textcolor{keywordtype}{bool}\ log\ =\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ SignalFlowData\ flow;}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ flow.timestamp\ =\ t;}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ flow.state\ =\ x;}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 1.\ Reference\ Signal\ Generation\ (Tracking\ Systems)}}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (Traits::HasOutput)\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ flow.reference\ =\ \textcolor{keyword}{static\_cast<}Derived*\textcolor{keyword}{>}(\textcolor{keyword}{this})-\/>computeReference(t);}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 2.\ Previous\ Output\ Handling\ (One-\/Step\ Delay)}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{OutputVector}}\ y\_clean\ =\ OutputVector::Zero();}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (Traits::HasOutput)\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (previous\_output\_.size()\ >\ 0)\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\_clean\ =\ previous\_output\_;}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ flow.output\_clean\ =\ y\_clean;}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 3.\ Measurement\ Noise\ Injection}}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{OutputVector}}\ y\_noisy\ =\ y\_clean;}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (Traits::HasOutput)\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\_noisy\ =\ \textcolor{keyword}{static\_cast<}Derived*\textcolor{keyword}{>}(\textcolor{keyword}{this})-\/>\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_acb64e0b82494c4ea6b7f462d636ca129}{addOutputNoise}}(y\_clean,\ t);}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ flow.output\_noisy\ =\ y\_noisy;}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 4.\ Control\ Signal\ Computation}}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{InputVector}}\ u\ =\ InputVector::Zero();}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (Traits::HasInput)\ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (Traits::HasOutput)\ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tracking\ Control:\ u\ =\ f(ref,\ y,\ x)}}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ u\ =\ \textcolor{keyword}{static\_cast<}Derived*\textcolor{keyword}{>}(\textcolor{keyword}{this})-\/>computeController(t,\ flow.reference,\ y\_noisy,\ x);}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Regulation\ Control:\ u\ =\ f(x)}}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ u\ =\ \textcolor{keyword}{static\_cast<}Derived*\textcolor{keyword}{>}(\textcolor{keyword}{this})-\/>computeController(t,\ x);}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ flow.control\_input\ =\ u;}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 5.\ Input\ Disturbance\ Injection}}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{InputVector}}\ u\_disturbed\ =\ u;}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (Traits::HasInput)\ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ u\_disturbed\ =\ \textcolor{keyword}{static\_cast<}Derived*\textcolor{keyword}{>}(\textcolor{keyword}{this})-\/>\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a560d9650e3cbd50988e2ae56cd1f4f8f}{addInputDisturbance}}(u,\ t);}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ flow.disturbed\_input\ =\ u\_disturbed;}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 6.\ System\ Dynamics\ Computation}}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ flow.derivative\ =\ \textcolor{keyword}{static\_cast<}Derived*\textcolor{keyword}{>}(\textcolor{keyword}{this})-\/>\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_ae4ca1b8a65c6480128d42090db60a9bc}{computeDynamics}}(t,\ x,\ u\_disturbed);}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 7.\ Current\ Output\ Update\ (For\ Next\ Step)}}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (Traits::HasOutput)\ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ previous\_output\_\ =\ \textcolor{keyword}{static\_cast<}Derived*\textcolor{keyword}{>}(\textcolor{keyword}{this})-\/>\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a2bff38212e8217e888d8fb822899ae07}{computeOutput}}(t,\ x,\ u);}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Data\ Logging}}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (log)\ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry}{LoggerType::LogEntry}}\ entry;}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ entry.\mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a96a7bcec953003bab03b4aeb5b0ea0a7}{timestamp}}\ =\ flow.timestamp;}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ entry.\mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a1c8b2101afdaced139d494705bc02e97}{state}}\ =\ flow.state;}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ entry.\mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a53436c8a752e25933d4b58adf6ad856e}{derivative}}\ =\ flow.derivative;}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ entry.\mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a11a8202e14aa8a79f00d0465310ef3d0}{control\_input}}\ =\ flow.control\_input;}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ entry.\mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry_aa1a5446cd1557e6f8b6bfb78ea8c5f6e}{disturbed\_input}}\ =\ flow.disturbed\_input;}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ entry.\mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a42ac05549773ebcbbfb072b8e83f9b6a}{reference}}\ =\ flow.reference;}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ entry.\mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry_afd1cd2688c99477d819b8002aa311b43}{output\_clean}}\ =\ flow.output\_clean;}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ entry.\mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a27bb63bd203628c844e6aceaacdd48b1}{output\_noisy}}\ =\ flow.output\_noisy;}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ logger\_.log(entry);}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ flow.derivative;}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aa175a8de5b4a15f62e81ea2c5f184ae9}{LoggerType}}\&\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_ad8b7b967af767352d57ee214332d45d6}{getLogger}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ logger\_;\ \}}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aa175a8de5b4a15f62e81ea2c5f184ae9}{LoggerType}}\&\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a7a29498b6646ca722389483041ec6780}{getLogger}}()\ \{\ \textcolor{keywordflow}{return}\ logger\_;\ \}}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{OutputVector}}\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_acb64e0b82494c4ea6b7f462d636ca129}{addOutputNoise}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{OutputVector}}\&\ y,\ \textcolor{keywordtype}{double})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ y;\ \}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{InputVector}}\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a560d9650e3cbd50988e2ae56cd1f4f8f}{addInputDisturbance}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{InputVector}}\&\ u,\ \textcolor{keywordtype}{double})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ u;\ \}}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_af3058af1705c69517e8c363f3db1c885}{Parameters}}\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_ae3c34c1ab7ee4face2617bb640e64f4d}{parameters\_}};\ }
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }SignalFlowData\ \{}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ timestamp;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{StateVector}}\ state;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{StateVector}}\ derivative;\ \ \ \ \ }
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{InputVector}}\ control\_input;\ \ }
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{InputVector}}\ disturbed\_input;\ }
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{OutputVector}}\ reference;\ \ \ \ \ }
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{OutputVector}}\ output\_clean;\ \ }
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{OutputVector}}\ output\_noisy;\ \ }
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aa175a8de5b4a15f62e81ea2c5f184ae9}{LoggerType}}\ logger\_;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{OutputVector}}\ previous\_output\_\ =\ OutputVector::Zero();\ }
+\DoxyCodeLine{00292\ \ \ \ \ \};}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \}\ \textcolor{comment}{//\ namespace\ ControlToolbox}}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ STATE\_SPACE\_SYSTEM\_HPP}}
+
+\end{DoxyCode}

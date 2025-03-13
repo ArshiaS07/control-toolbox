@@ -1,0 +1,193 @@
+\doxysection{Control\+Toolbox\+::Simulation\texorpdfstring{$<$}{<} System, Solver \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_control_toolbox_1_1_simulation}{}\label{class_control_toolbox_1_1_simulation}\index{ControlToolbox::Simulation$<$ System, Solver $>$@{ControlToolbox::Simulation$<$ System, Solver $>$}}
+
+
+Manages complete simulation execution and data collection.  
+
+
+
+
+{\ttfamily \#include $<$Simulation.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{Indent}\textbf{ Type Aliases}\par
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_simulation_a75d5c399000e8e0ec78ece288ce653e3}{State\+Vector}} = typename System\+::\+State\+Vector
+\begin{DoxyCompactList}\small\item\em State vector type from system. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_simulation_a97b7ee354722dd9ac65bd49c146af28e}{Time\+Type}} = typename Solver\+::\+Time\+Type
+\begin{DoxyCompactList}\small\item\em Time representation type from solver. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_simulation_aea705f272054265c16d820faba9836d8}{Simulation}} (std\+::shared\+\_\+ptr$<$ System $>$ system, std\+::shared\+\_\+ptr$<$ Solver $>$ solver, \mbox{\hyperlink{class_control_toolbox_1_1_simulation_a75d5c399000e8e0ec78ece288ce653e3}{State\+Vector}} initial\+\_\+state, \mbox{\hyperlink{class_control_toolbox_1_1_simulation_a97b7ee354722dd9ac65bd49c146af28e}{Time\+Type}} initial\+\_\+time=0.\+0)
+\begin{DoxyCompactList}\small\item\em Construct simulation manager. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_control_toolbox_1_1_simulation_ab4086b7c95a0e256ac339faef72f322d}{run}} (\mbox{\hyperlink{class_control_toolbox_1_1_simulation_a97b7ee354722dd9ac65bd49c146af28e}{Time\+Type}} dt)
+\begin{DoxyCompactList}\small\item\em Execute complete simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Simulation State Access}\par
+\begin{DoxyCompactItemize}
+\item 
+const auto \& \mbox{\hyperlink{class_control_toolbox_1_1_simulation_a962de87bc80bfda8c9b705ca9db40f43}{get\+\_\+logger}} () const
+\begin{DoxyCompactList}\small\item\em Access simulation data logger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_simulation_a97b7ee354722dd9ac65bd49c146af28e}{Time\+Type}} \mbox{\hyperlink{class_control_toolbox_1_1_simulation_ae9e7c71922e7df89b8c3082665dfe231}{current\+\_\+time}} () const
+\begin{DoxyCompactList}\small\item\em Get current simulation time. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_control_toolbox_1_1_simulation_a75d5c399000e8e0ec78ece288ce653e3}{State\+Vector}} \& \mbox{\hyperlink{class_control_toolbox_1_1_simulation_a96df6614215f1c3f7a3b4231b6f7efe5}{current\+\_\+state}} () const
+\begin{DoxyCompactList}\small\item\em Get current system state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename System, typename Solver$>$\newline
+class Control\+Toolbox\+::\+Simulation$<$ System, Solver $>$}
+Manages complete simulation execution and data collection. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em System} & Dynamical system type (State\+Space\+System-\/based) \\
+\hline
+{\em Solver} & Numerical integrator type (Solver\+Base-\/based)\\
+\hline
+\end{DoxyTemplParams}
+Coordinates the interaction between\+:
+\begin{DoxyItemize}
+\item Dynamical system model
+\item Numerical integration method
+\item Data logging infrastructure
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Uses fixed-\/time stepping scheme 
+
+Maintains ownership of system and solver instances 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{class_control_toolbox_1_1_simulation_a75d5c399000e8e0ec78ece288ce653e3}\index{ControlToolbox::Simulation$<$ System, Solver $>$@{ControlToolbox::Simulation$<$ System, Solver $>$}!StateVector@{StateVector}}
+\index{StateVector@{StateVector}!ControlToolbox::Simulation$<$ System, Solver $>$@{ControlToolbox::Simulation$<$ System, Solver $>$}}
+\doxysubsubsection{\texorpdfstring{StateVector}{StateVector}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_simulation_a75d5c399000e8e0ec78ece288ce653e3} 
+template$<$typename System, typename Solver$>$ \\
+using \mbox{\hyperlink{class_control_toolbox_1_1_simulation}{Control\+Toolbox\+::\+Simulation}}$<$ System, Solver $>$\+::\+State\+Vector = typename System\+::\+State\+Vector}
+
+
+
+State vector type from system. 
+
+\Hypertarget{class_control_toolbox_1_1_simulation_a97b7ee354722dd9ac65bd49c146af28e}\index{ControlToolbox::Simulation$<$ System, Solver $>$@{ControlToolbox::Simulation$<$ System, Solver $>$}!TimeType@{TimeType}}
+\index{TimeType@{TimeType}!ControlToolbox::Simulation$<$ System, Solver $>$@{ControlToolbox::Simulation$<$ System, Solver $>$}}
+\doxysubsubsection{\texorpdfstring{TimeType}{TimeType}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_simulation_a97b7ee354722dd9ac65bd49c146af28e} 
+template$<$typename System, typename Solver$>$ \\
+using \mbox{\hyperlink{class_control_toolbox_1_1_simulation}{Control\+Toolbox\+::\+Simulation}}$<$ System, Solver $>$\+::\+Time\+Type = typename Solver\+::\+Time\+Type}
+
+
+
+Time representation type from solver. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_control_toolbox_1_1_simulation_aea705f272054265c16d820faba9836d8}\index{ControlToolbox::Simulation$<$ System, Solver $>$@{ControlToolbox::Simulation$<$ System, Solver $>$}!Simulation@{Simulation}}
+\index{Simulation@{Simulation}!ControlToolbox::Simulation$<$ System, Solver $>$@{ControlToolbox::Simulation$<$ System, Solver $>$}}
+\doxysubsubsection{\texorpdfstring{Simulation()}{Simulation()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_simulation_aea705f272054265c16d820faba9836d8} 
+template$<$typename System, typename Solver$>$ \\
+\mbox{\hyperlink{class_control_toolbox_1_1_simulation}{Control\+Toolbox\+::\+Simulation}}$<$ System, Solver $>$\+::\+Simulation (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ System $>$}]{system}{, }\item[{std\+::shared\+\_\+ptr$<$ Solver $>$}]{solver}{, }\item[{\mbox{\hyperlink{class_control_toolbox_1_1_simulation_a75d5c399000e8e0ec78ece288ce653e3}{State\+Vector}}}]{initial\+\_\+state}{, }\item[{\mbox{\hyperlink{class_control_toolbox_1_1_simulation_a97b7ee354722dd9ac65bd49c146af28e}{Time\+Type}}}]{initial\+\_\+time}{ = {\ttfamily 0.0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct simulation manager. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em system} & System instance to simulate (must be non-\/null) \\
+\hline
+\mbox{\texttt{ in}}  & {\em solver} & Numerical solver instance (must be non-\/null) \\
+\hline
+\mbox{\texttt{ in}}  & {\em initial\+\_\+state} & Initial condition vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em initial\+\_\+time} & Starting simulation time (default\+: 0.\+0)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+System and solver instances must outlive the simulation 
+\end{DoxyWarning}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_control_toolbox_1_1_simulation_a96df6614215f1c3f7a3b4231b6f7efe5}\index{ControlToolbox::Simulation$<$ System, Solver $>$@{ControlToolbox::Simulation$<$ System, Solver $>$}!current\_state@{current\_state}}
+\index{current\_state@{current\_state}!ControlToolbox::Simulation$<$ System, Solver $>$@{ControlToolbox::Simulation$<$ System, Solver $>$}}
+\doxysubsubsection{\texorpdfstring{current\_state()}{current\_state()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_simulation_a96df6614215f1c3f7a3b4231b6f7efe5} 
+template$<$typename System, typename Solver$>$ \\
+const \mbox{\hyperlink{class_control_toolbox_1_1_simulation_a75d5c399000e8e0ec78ece288ce653e3}{State\+Vector}} \& \mbox{\hyperlink{class_control_toolbox_1_1_simulation}{Control\+Toolbox\+::\+Simulation}}$<$ System, Solver $>$\+::current\+\_\+state (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get current system state. 
+
+\begin{DoxyReturn}{Returns}
+const \doxylink{class_control_toolbox_1_1_simulation_a75d5c399000e8e0ec78ece288ce653e3}{State\+Vector}\& Current state vector 
+\end{DoxyReturn}
+\Hypertarget{class_control_toolbox_1_1_simulation_ae9e7c71922e7df89b8c3082665dfe231}\index{ControlToolbox::Simulation$<$ System, Solver $>$@{ControlToolbox::Simulation$<$ System, Solver $>$}!current\_time@{current\_time}}
+\index{current\_time@{current\_time}!ControlToolbox::Simulation$<$ System, Solver $>$@{ControlToolbox::Simulation$<$ System, Solver $>$}}
+\doxysubsubsection{\texorpdfstring{current\_time()}{current\_time()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_simulation_ae9e7c71922e7df89b8c3082665dfe231} 
+template$<$typename System, typename Solver$>$ \\
+\mbox{\hyperlink{class_control_toolbox_1_1_simulation_a97b7ee354722dd9ac65bd49c146af28e}{Time\+Type}} \mbox{\hyperlink{class_control_toolbox_1_1_simulation}{Control\+Toolbox\+::\+Simulation}}$<$ System, Solver $>$\+::current\+\_\+time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get current simulation time. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{class_control_toolbox_1_1_simulation_a97b7ee354722dd9ac65bd49c146af28e}{Time\+Type} Current simulation time (seconds) 
+\end{DoxyReturn}
+\Hypertarget{class_control_toolbox_1_1_simulation_a962de87bc80bfda8c9b705ca9db40f43}\index{ControlToolbox::Simulation$<$ System, Solver $>$@{ControlToolbox::Simulation$<$ System, Solver $>$}!get\_logger@{get\_logger}}
+\index{get\_logger@{get\_logger}!ControlToolbox::Simulation$<$ System, Solver $>$@{ControlToolbox::Simulation$<$ System, Solver $>$}}
+\doxysubsubsection{\texorpdfstring{get\_logger()}{get\_logger()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_simulation_a962de87bc80bfda8c9b705ca9db40f43} 
+template$<$typename System, typename Solver$>$ \\
+const auto \& \mbox{\hyperlink{class_control_toolbox_1_1_simulation}{Control\+Toolbox\+::\+Simulation}}$<$ System, Solver $>$\+::get\+\_\+logger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Access simulation data logger. 
+
+\begin{DoxyReturn}{Returns}
+const-\/reference to logger instance 
+\end{DoxyReturn}
+\Hypertarget{class_control_toolbox_1_1_simulation_ab4086b7c95a0e256ac339faef72f322d}\index{ControlToolbox::Simulation$<$ System, Solver $>$@{ControlToolbox::Simulation$<$ System, Solver $>$}!run@{run}}
+\index{run@{run}!ControlToolbox::Simulation$<$ System, Solver $>$@{ControlToolbox::Simulation$<$ System, Solver $>$}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_simulation_ab4086b7c95a0e256ac339faef72f322d} 
+template$<$typename System, typename Solver$>$ \\
+void \mbox{\hyperlink{class_control_toolbox_1_1_simulation}{Control\+Toolbox\+::\+Simulation}}$<$ System, Solver $>$\+::run (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_control_toolbox_1_1_simulation_a97b7ee354722dd9ac65bd49c146af28e}{Time\+Type}}}]{dt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Execute complete simulation. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dt} & Fixed time step size (seconds)\\
+\hline
+\end{DoxyParams}
+\doxylink{class_control_toolbox_1_1_simulation}{Simulation} loop steps\+:
+\begin{DoxyEnumerate}
+\item Check stop conditions
+\item Log current state through system derivative call
+\item Perform integration step
+\item Advance simulation time
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Note}
+Logging is triggered via system\textquotesingle{}s compute\+System\+Derivative 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/control\+\_\+toolbox/\mbox{\hyperlink{_simulation_8hpp}{Simulation.\+hpp}}\end{DoxyCompactItemize}

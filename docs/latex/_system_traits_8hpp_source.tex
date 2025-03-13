@@ -1,0 +1,47 @@
+\doxysection{System\+Traits.\+hpp}
+\hypertarget{_system_traits_8hpp_source}{}\label{_system_traits_8hpp_source}\index{include/control\_toolbox/SystemTraits.hpp@{include/control\_toolbox/SystemTraits.hpp}}
+\mbox{\hyperlink{_system_traits_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ SPDX-\/FileCopyrightText:\ 2025\ Arshia\ Saffari}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ GNU\ GPLv3}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <Eigen/Core>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_control_toolbox}{ControlToolbox}}\ \{}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{int}\ StateDim\ =\ Eigen::Dynamic,\ \textcolor{keywordtype}{int}\ InputDim\ =\ 0,\ \textcolor{keywordtype}{int}\ OutputDim\ =\ 0>}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_control_toolbox_1_1_system_traits}{SystemTraits}}\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_a506a045a4ccd6ecb6ee133b287369270}{StateDimension}}\ =\ StateDim;\ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_a21457e7781d1ef289c267f30f107bb28}{InputDimension}}\ =\ InputDim;\ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_a6c9431ca19737e2447d950304bdae5cb}{OutputDimension}}\ =\ OutputDim;\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(StateDim\ ==\ Eigen::Dynamic\ ||\ StateDim\ >\ 0,\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}State\ dimension\ must\ be\ positive\ or\ Eigen::Dynamic"{}});}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(InputDim\ >=\ 0,\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Input\ dimension\ must\ be\ non-\/negative"{}});}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(OutputDim\ >=\ 0,\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Output\ dimension\ must\ be\ non-\/negative"{}});}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_ae178c60fd7f7dc5fd99b8cb96b76deaf}{StateVector}}\ =\ Eigen::Matrix<double,\ StateDim,\ 1>;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{int}\ D\ =\ InputDim>}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_a528fcbd3a9f0ba749916d8897c3737fd}{InputVector}}\ =\ \textcolor{keyword}{typename}\ std::enable\_if\_t<(D\ >\ 0),\ Eigen::Matrix<double,\ D,\ 1>>;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{int}\ D\ =\ OutputDim>}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_a3003f34fbceb1e589bd85f88a1cacab1}{OutputVector}}\ =\ \textcolor{keyword}{typename}\ std::enable\_if\_t<(D\ >\ 0),\ Eigen::Matrix<double,\ D,\ 1>>;}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_a63ec2908ce68c5da2248e54358c9f4ae}{HasInput}}\ =\ (InputDim\ >\ 0);\ \ \ \ \ \ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_a952070bfaa0269e57348bd13947cf91a}{HasOutput}}\ =\ (OutputDim\ >\ 0);\ \ \ \ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_afc410c0f19d895b788967d8b7a0eba16}{IsDynamic}}\ =\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ (StateDim\ ==\ Eigen::Dynamic)\ ||}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ (InputDim\ ==\ Eigen::Dynamic)\ ||}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ (OutputDim\ ==\ Eigen::Dynamic);}
+\DoxyCodeLine{00094\ \ \ \ \ \};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \}\ \textcolor{comment}{//\ namespace\ ControlToolbox}}
+
+\end{DoxyCode}

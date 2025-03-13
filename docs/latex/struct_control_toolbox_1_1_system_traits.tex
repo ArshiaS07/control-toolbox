@@ -1,0 +1,215 @@
+\doxysection{Control\+Toolbox\+::System\+Traits\texorpdfstring{$<$}{<} State\+Dim, Input\+Dim, Output\+Dim \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{struct_control_toolbox_1_1_system_traits}{}\label{struct_control_toolbox_1_1_system_traits}\index{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$@{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$}}
+
+
+Defines dimensional properties and core types for dynamical systems.  
+
+
+
+
+{\ttfamily \#include $<$System\+Traits.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{Indent}\textbf{ Core Types}\par
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_ae178c60fd7f7dc5fd99b8cb96b76deaf}{State\+Vector}} = Eigen\+::\+Matrix$<$double, State\+Dim, 1$>$
+\begin{DoxyCompactList}\small\item\em State vector type (Nx1 Eigen column vector) \end{DoxyCompactList}\item 
+{\footnotesize template$<$int D = Input\+Dim$>$ }\\using \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_a528fcbd3a9f0ba749916d8897c3737fd}{Input\+Vector}} = typename std\+::enable\+\_\+if\+\_\+t$<$(D $>$ 0), Eigen\+::\+Matrix$<$double, D, 1$>$$>$
+\begin{DoxyCompactList}\small\item\em Control input vector type (Mx1 Eigen column vector) \end{DoxyCompactList}\item 
+{\footnotesize template$<$int D = Output\+Dim$>$ }\\using \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_a3003f34fbceb1e589bd85f88a1cacab1}{Output\+Vector}} = typename std\+::enable\+\_\+if\+\_\+t$<$(D $>$ 0), Eigen\+::\+Matrix$<$double, D, 1$>$$>$
+\begin{DoxyCompactList}\small\item\em System output vector type (Px1 Eigen column vector) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Static Public Attributes}
+\begin{Indent}\textbf{ Dimension Constants}\par
+\begin{DoxyCompactItemize}
+\item 
+static constexpr int \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_a506a045a4ccd6ecb6ee133b287369270}{State\+Dimension}} = State\+Dim
+\begin{DoxyCompactList}\small\item\em State space dimension. \end{DoxyCompactList}\item 
+static constexpr int \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_a21457e7781d1ef289c267f30f107bb28}{Input\+Dimension}} = Input\+Dim
+\begin{DoxyCompactList}\small\item\em Input space dimension. \end{DoxyCompactList}\item 
+static constexpr int \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_a6c9431ca19737e2447d950304bdae5cb}{Output\+Dimension}} = Output\+Dim
+\begin{DoxyCompactList}\small\item\em Output space dimension. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ System Properties}\par
+\begin{DoxyCompactItemize}
+\item 
+static constexpr bool \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_a63ec2908ce68c5da2248e54358c9f4ae}{Has\+Input}} = (Input\+Dim $>$ 0)
+\begin{DoxyCompactList}\small\item\em System has control inputs. \end{DoxyCompactList}\item 
+static constexpr bool \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_a952070bfaa0269e57348bd13947cf91a}{Has\+Output}} = (Output\+Dim $>$ 0)
+\begin{DoxyCompactList}\small\item\em System has defined outputs. \end{DoxyCompactList}\item 
+static constexpr bool \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits_afc410c0f19d895b788967d8b7a0eba16}{Is\+Dynamic}}
+\begin{DoxyCompactList}\small\item\em Runtime-\/sized system flag. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$int State\+Dim = Eigen\+::\+Dynamic, int Input\+Dim = 0, int Output\+Dim = 0$>$\newline
+struct Control\+Toolbox\+::\+System\+Traits$<$ State\+Dim, Input\+Dim, Output\+Dim $>$}
+Defines dimensional properties and core types for dynamical systems. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State\+Dim} & Dimension of system state (Eigen\+::\+Dynamic for dynamic-\/size systems) \\
+\hline
+{\em Input\+Dim} & Dimension of control input (0 for autonomous systems) \\
+\hline
+{\em Output\+Dim} & Dimension of system output (0 for state-\/only systems)\\
+\hline
+\end{DoxyTemplParams}
+Provides compile-\/time dimensional checking and type-\/safe algebraic definitions for control system implementations. Integrates with Eigen for linear algebra operations.
+
+\begin{DoxyNote}{Note}
+All dimensions must satisfy\+:
+\begin{DoxyItemize}
+\item State\+Dim\+: Eigen\+::\+Dynamic or \texorpdfstring{$>$}{>} 0
+\item Input\+Dim\+: \texorpdfstring{$>$}{>}= 0
+\item Output\+Dim\+: \texorpdfstring{$>$}{>}= 0
+\end{DoxyItemize}
+\end{DoxyNote}
+Example usage\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }DoubleIntegratorTraits\ =\ SystemTraits<2,\ 1,\ 2>;}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{struct_control_toolbox_1_1_system_traits_a528fcbd3a9f0ba749916d8897c3737fd}\index{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$@{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$}!InputVector@{InputVector}}
+\index{InputVector@{InputVector}!ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$@{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$}}
+\doxysubsubsection{\texorpdfstring{InputVector}{InputVector}}
+{\footnotesize\ttfamily \label{struct_control_toolbox_1_1_system_traits_a528fcbd3a9f0ba749916d8897c3737fd} 
+template$<$int State\+Dim = Eigen\+::\+Dynamic, int Input\+Dim = 0, int Output\+Dim = 0$>$ \\
+template$<$int D = Input\+Dim$>$ \\
+using \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits}{Control\+Toolbox\+::\+System\+Traits}}$<$ State\+Dim, Input\+Dim, Output\+Dim $>$\+::\+Input\+Vector = typename std\+::enable\+\_\+if\+\_\+t$<$(D $>$ 0), Eigen\+::\+Matrix$<$double, D, 1$>$$>$}
+
+
+
+Control input vector type (Mx1 Eigen column vector) 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Input\+Dim} & Template parameter defining input dimension \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyNote}{Note}
+Only defined when Input\+Dim \texorpdfstring{$>$}{>} 0 
+\end{DoxyNote}
+\Hypertarget{struct_control_toolbox_1_1_system_traits_a3003f34fbceb1e589bd85f88a1cacab1}\index{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$@{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$}!OutputVector@{OutputVector}}
+\index{OutputVector@{OutputVector}!ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$@{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$}}
+\doxysubsubsection{\texorpdfstring{OutputVector}{OutputVector}}
+{\footnotesize\ttfamily \label{struct_control_toolbox_1_1_system_traits_a3003f34fbceb1e589bd85f88a1cacab1} 
+template$<$int State\+Dim = Eigen\+::\+Dynamic, int Input\+Dim = 0, int Output\+Dim = 0$>$ \\
+template$<$int D = Output\+Dim$>$ \\
+using \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits}{Control\+Toolbox\+::\+System\+Traits}}$<$ State\+Dim, Input\+Dim, Output\+Dim $>$\+::\+Output\+Vector = typename std\+::enable\+\_\+if\+\_\+t$<$(D $>$ 0), Eigen\+::\+Matrix$<$double, D, 1$>$$>$}
+
+
+
+System output vector type (Px1 Eigen column vector) 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Output\+Dim} & Template parameter defining output dimension \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyNote}{Note}
+Only defined when Output\+Dim \texorpdfstring{$>$}{>} 0 
+\end{DoxyNote}
+\Hypertarget{struct_control_toolbox_1_1_system_traits_ae178c60fd7f7dc5fd99b8cb96b76deaf}\index{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$@{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$}!StateVector@{StateVector}}
+\index{StateVector@{StateVector}!ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$@{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$}}
+\doxysubsubsection{\texorpdfstring{StateVector}{StateVector}}
+{\footnotesize\ttfamily \label{struct_control_toolbox_1_1_system_traits_ae178c60fd7f7dc5fd99b8cb96b76deaf} 
+template$<$int State\+Dim = Eigen\+::\+Dynamic, int Input\+Dim = 0, int Output\+Dim = 0$>$ \\
+using \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits}{Control\+Toolbox\+::\+System\+Traits}}$<$ State\+Dim, Input\+Dim, Output\+Dim $>$\+::\+State\+Vector = Eigen\+::\+Matrix$<$double, State\+Dim, 1$>$}
+
+
+
+State vector type (Nx1 Eigen column vector) 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em State\+Dim} & Template parameter defining state dimension \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_control_toolbox_1_1_system_traits_a63ec2908ce68c5da2248e54358c9f4ae}\index{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$@{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$}!HasInput@{HasInput}}
+\index{HasInput@{HasInput}!ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$@{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$}}
+\doxysubsubsection{\texorpdfstring{HasInput}{HasInput}}
+{\footnotesize\ttfamily \label{struct_control_toolbox_1_1_system_traits_a63ec2908ce68c5da2248e54358c9f4ae} 
+template$<$int State\+Dim = Eigen\+::\+Dynamic, int Input\+Dim = 0, int Output\+Dim = 0$>$ \\
+bool \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits}{Control\+Toolbox\+::\+System\+Traits}}$<$ State\+Dim, Input\+Dim, Output\+Dim $>$\+::\+Has\+Input = (Input\+Dim $>$ 0)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+System has control inputs. 
+
+\Hypertarget{struct_control_toolbox_1_1_system_traits_a952070bfaa0269e57348bd13947cf91a}\index{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$@{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$}!HasOutput@{HasOutput}}
+\index{HasOutput@{HasOutput}!ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$@{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$}}
+\doxysubsubsection{\texorpdfstring{HasOutput}{HasOutput}}
+{\footnotesize\ttfamily \label{struct_control_toolbox_1_1_system_traits_a952070bfaa0269e57348bd13947cf91a} 
+template$<$int State\+Dim = Eigen\+::\+Dynamic, int Input\+Dim = 0, int Output\+Dim = 0$>$ \\
+bool \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits}{Control\+Toolbox\+::\+System\+Traits}}$<$ State\+Dim, Input\+Dim, Output\+Dim $>$\+::\+Has\+Output = (Output\+Dim $>$ 0)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+System has defined outputs. 
+
+\Hypertarget{struct_control_toolbox_1_1_system_traits_a21457e7781d1ef289c267f30f107bb28}\index{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$@{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$}!InputDimension@{InputDimension}}
+\index{InputDimension@{InputDimension}!ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$@{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$}}
+\doxysubsubsection{\texorpdfstring{InputDimension}{InputDimension}}
+{\footnotesize\ttfamily \label{struct_control_toolbox_1_1_system_traits_a21457e7781d1ef289c267f30f107bb28} 
+template$<$int State\+Dim = Eigen\+::\+Dynamic, int Input\+Dim = 0, int Output\+Dim = 0$>$ \\
+int \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits}{Control\+Toolbox\+::\+System\+Traits}}$<$ State\+Dim, Input\+Dim, Output\+Dim $>$\+::\+Input\+Dimension = Input\+Dim\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Input space dimension. 
+
+\Hypertarget{struct_control_toolbox_1_1_system_traits_afc410c0f19d895b788967d8b7a0eba16}\index{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$@{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$}!IsDynamic@{IsDynamic}}
+\index{IsDynamic@{IsDynamic}!ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$@{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$}}
+\doxysubsubsection{\texorpdfstring{IsDynamic}{IsDynamic}}
+{\footnotesize\ttfamily \label{struct_control_toolbox_1_1_system_traits_afc410c0f19d895b788967d8b7a0eba16} 
+template$<$int State\+Dim = Eigen\+::\+Dynamic, int Input\+Dim = 0, int Output\+Dim = 0$>$ \\
+bool \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits}{Control\+Toolbox\+::\+System\+Traits}}$<$ State\+Dim, Input\+Dim, Output\+Dim $>$\+::\+Is\+Dynamic\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ (StateDim\ ==\ Eigen::Dynamic)\ ||}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ (InputDim\ ==\ Eigen::Dynamic)\ ||}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ (OutputDim\ ==\ Eigen::Dynamic)}
+
+\end{DoxyCode}
+
+
+Runtime-\/sized system flag. 
+
+\Hypertarget{struct_control_toolbox_1_1_system_traits_a6c9431ca19737e2447d950304bdae5cb}\index{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$@{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$}!OutputDimension@{OutputDimension}}
+\index{OutputDimension@{OutputDimension}!ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$@{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$}}
+\doxysubsubsection{\texorpdfstring{OutputDimension}{OutputDimension}}
+{\footnotesize\ttfamily \label{struct_control_toolbox_1_1_system_traits_a6c9431ca19737e2447d950304bdae5cb} 
+template$<$int State\+Dim = Eigen\+::\+Dynamic, int Input\+Dim = 0, int Output\+Dim = 0$>$ \\
+int \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits}{Control\+Toolbox\+::\+System\+Traits}}$<$ State\+Dim, Input\+Dim, Output\+Dim $>$\+::\+Output\+Dimension = Output\+Dim\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Output space dimension. 
+
+\Hypertarget{struct_control_toolbox_1_1_system_traits_a506a045a4ccd6ecb6ee133b287369270}\index{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$@{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$}!StateDimension@{StateDimension}}
+\index{StateDimension@{StateDimension}!ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$@{ControlToolbox::SystemTraits$<$ StateDim, InputDim, OutputDim $>$}}
+\doxysubsubsection{\texorpdfstring{StateDimension}{StateDimension}}
+{\footnotesize\ttfamily \label{struct_control_toolbox_1_1_system_traits_a506a045a4ccd6ecb6ee133b287369270} 
+template$<$int State\+Dim = Eigen\+::\+Dynamic, int Input\+Dim = 0, int Output\+Dim = 0$>$ \\
+int \mbox{\hyperlink{struct_control_toolbox_1_1_system_traits}{Control\+Toolbox\+::\+System\+Traits}}$<$ State\+Dim, Input\+Dim, Output\+Dim $>$\+::\+State\+Dimension = State\+Dim\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+State space dimension. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/control\+\_\+toolbox/\mbox{\hyperlink{_system_traits_8hpp}{System\+Traits.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,308 @@
+\doxysection{Control\+Toolbox\+::System\+Logger\texorpdfstring{$<$}{<} Traits \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_control_toolbox_1_1_system_logger}{}\label{class_control_toolbox_1_1_system_logger}\index{ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}}
+
+
+Comprehensive data logging and analysis utility for dynamical systems.  
+
+
+
+
+{\ttfamily \#include $<$Logger.\+hpp$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry}{Log\+Entry}}
+\begin{DoxyCompactList}\small\item\em Complete system snapshot at a specific timestep. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{Indent}\textbf{ Type Aliases}\par
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a9ebf4c14303919f4567ad6811df596d9}{State\+Vector}} = typename Traits\+::\+State\+Vector
+\begin{DoxyCompactList}\small\item\em State vector type. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a7f830cb58edea5f018d47794ac96d1d7}{Input\+Vector}}
+\begin{DoxyCompactList}\small\item\em Input vector type. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a528b6e8ce8adbfa2b1fb5532ff4c00af}{Output\+Vector}}
+\begin{DoxyCompactList}\small\item\em Output vector type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Public Member Functions}
+\begin{Indent}\textbf{ Data Recording Interface}\par
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a3f760d2a009d8c0836479ce299a3ca47}{log}} (const \mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry}{Log\+Entry}} \&entry)
+\begin{DoxyCompactList}\small\item\em Record a new system state. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry}{Log\+Entry}} $>$ \& \mbox{\hyperlink{class_control_toolbox_1_1_system_logger_ae54aedb7498b8282a6e5d38fd145fbe5}{entries}} () const
+\begin{DoxyCompactList}\small\item\em Access complete log history. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Data Retrieval Interface}\par
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry}{Log\+Entry}} \& \mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a1e5d24c7e1427aefe1c3d479184d9f6f}{get\+\_\+by\+\_\+index}} (size\+\_\+t index) const
+\begin{DoxyCompactList}\small\item\em Access log entry by index. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry}{Log\+Entry}} \& \mbox{\hyperlink{class_control_toolbox_1_1_system_logger_af95002e650aa5646c2c266181069ba4c}{get\+\_\+by\+\_\+time}} (double t) const
+\begin{DoxyCompactList}\small\item\em Find entry by exact timestamp match. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Data Export Interface}\par
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a356868dabbe37461f7c87b871c44d65f}{export\+\_\+csv}} (const std\+::filesystem\+::path \&filename) const
+\begin{DoxyCompactList}\small\item\em Export logged data to CSV format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Temporal Analysis}\par
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ double, double $>$ \mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a6257ef0e38e578c3d3e7fa0b91e9eb84}{time\+\_\+range}} () const
+\begin{DoxyCompactList}\small\item\em Get simulation time boundaries. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a729aaf50b82154e26ea5c419c8b38c5a}{get\+\_\+state\+\_\+component}} (size\+\_\+t idx, double t\+\_\+start, double t\+\_\+end) const
+\begin{DoxyCompactList}\small\item\em Extract state component history in time window. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a79d8fb0abd8eeb7a6489967348885870}{calculate\+\_\+amplitude}} (size\+\_\+t state\+\_\+idx, double t\+\_\+start, double t\+\_\+end) const
+\begin{DoxyCompactList}\small\item\em Calculate peak-\/to-\/peak amplitude of state component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Traits$>$\newline
+class Control\+Toolbox\+::\+System\+Logger$<$ Traits $>$}
+Comprehensive data logging and analysis utility for dynamical systems. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Traits} & System traits type defining dimensional properties (System\+Traits-\/based)\\
+\hline
+\end{DoxyTemplParams}
+Provides\+:
+\begin{DoxyItemize}
+\item Time-\/series data recording at multiple signal points
+\item Temporal query operations
+\item CSV export/import capabilities
+\item Basic signal analysis functions
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Requires C++17 or later for filesystem support 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{class_control_toolbox_1_1_system_logger_a7f830cb58edea5f018d47794ac96d1d7}\index{ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}!InputVector@{InputVector}}
+\index{InputVector@{InputVector}!ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}}
+\doxysubsubsection{\texorpdfstring{InputVector}{InputVector}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_system_logger_a7f830cb58edea5f018d47794ac96d1d7} 
+template$<$typename Traits$>$ \\
+using \mbox{\hyperlink{class_control_toolbox_1_1_system_logger}{Control\+Toolbox\+::\+System\+Logger}}$<$ Traits $>$\+::\+Input\+Vector}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \textcolor{keyword}{typename}\ Traits::template\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{InputVector}}<}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ Traits::InputDimension>}
+
+\end{DoxyCode}
+
+
+Input vector type. 
+
+\Hypertarget{class_control_toolbox_1_1_system_logger_a528b6e8ce8adbfa2b1fb5532ff4c00af}\index{ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}!OutputVector@{OutputVector}}
+\index{OutputVector@{OutputVector}!ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}}
+\doxysubsubsection{\texorpdfstring{OutputVector}{OutputVector}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_system_logger_a528b6e8ce8adbfa2b1fb5532ff4c00af} 
+template$<$typename Traits$>$ \\
+using \mbox{\hyperlink{class_control_toolbox_1_1_system_logger}{Control\+Toolbox\+::\+System\+Logger}}$<$ Traits $>$\+::\+Output\+Vector}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \textcolor{keyword}{typename}\ Traits::template\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{OutputVector}}<}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ Traits::OutputDimension>}
+
+\end{DoxyCode}
+
+
+Output vector type. 
+
+\Hypertarget{class_control_toolbox_1_1_system_logger_a9ebf4c14303919f4567ad6811df596d9}\index{ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}!StateVector@{StateVector}}
+\index{StateVector@{StateVector}!ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}}
+\doxysubsubsection{\texorpdfstring{StateVector}{StateVector}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_system_logger_a9ebf4c14303919f4567ad6811df596d9} 
+template$<$typename Traits$>$ \\
+using \mbox{\hyperlink{class_control_toolbox_1_1_system_logger}{Control\+Toolbox\+::\+System\+Logger}}$<$ Traits $>$\+::\+State\+Vector = typename Traits\+::\+State\+Vector}
+
+
+
+State vector type. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_control_toolbox_1_1_system_logger_a79d8fb0abd8eeb7a6489967348885870}\index{ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}!calculate\_amplitude@{calculate\_amplitude}}
+\index{calculate\_amplitude@{calculate\_amplitude}!ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}}
+\doxysubsubsection{\texorpdfstring{calculate\_amplitude()}{calculate\_amplitude()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_system_logger_a79d8fb0abd8eeb7a6489967348885870} 
+template$<$typename Traits$>$ \\
+double \mbox{\hyperlink{class_control_toolbox_1_1_system_logger}{Control\+Toolbox\+::\+System\+Logger}}$<$ Traits $>$\+::calculate\+\_\+amplitude (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{state\+\_\+idx}{, }\item[{double}]{t\+\_\+start}{, }\item[{double}]{t\+\_\+end}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculate peak-\/to-\/peak amplitude of state component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state\+\_\+idx} & State vector component index \\
+\hline
+{\em t\+\_\+start} & Start time (inclusive) \\
+\hline
+{\em t\+\_\+end} & End time (inclusive) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Amplitude (max -\/ min) in specified range 
+\end{DoxyReturn}
+\Hypertarget{class_control_toolbox_1_1_system_logger_ae54aedb7498b8282a6e5d38fd145fbe5}\index{ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}!entries@{entries}}
+\index{entries@{entries}!ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}}
+\doxysubsubsection{\texorpdfstring{entries()}{entries()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_system_logger_ae54aedb7498b8282a6e5d38fd145fbe5} 
+template$<$typename Traits$>$ \\
+const std\+::vector$<$ \mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry}{Log\+Entry}} $>$ \& \mbox{\hyperlink{class_control_toolbox_1_1_system_logger}{Control\+Toolbox\+::\+System\+Logger}}$<$ Traits $>$\+::entries (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Access complete log history. 
+
+\begin{DoxyReturn}{Returns}
+Const reference to internal log storage 
+\end{DoxyReturn}
+\Hypertarget{class_control_toolbox_1_1_system_logger_a356868dabbe37461f7c87b871c44d65f}\index{ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}!export\_csv@{export\_csv}}
+\index{export\_csv@{export\_csv}!ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}}
+\doxysubsubsection{\texorpdfstring{export\_csv()}{export\_csv()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_system_logger_a356868dabbe37461f7c87b871c44d65f} 
+template$<$typename Traits$>$ \\
+void \mbox{\hyperlink{class_control_toolbox_1_1_system_logger}{Control\+Toolbox\+::\+System\+Logger}}$<$ Traits $>$\+::export\+\_\+csv (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{filename}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Export logged data to CSV format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Output file path \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & On file open failure\\
+\hline
+\end{DoxyExceptions}
+Generates a CSV with columns\+:
+\begin{DoxyItemize}
+\item Time, State components (x0, x1...), Derivatives (dx0, dx1...),
+\item Control inputs (u0, u1...), Disturbed inputs (u\+\_\+dist0...),
+\item References (ref0...), Clean outputs (y\+\_\+clean0...), Noisy outputs (y\+\_\+noisy0...) 
+\end{DoxyItemize}\Hypertarget{class_control_toolbox_1_1_system_logger_a1e5d24c7e1427aefe1c3d479184d9f6f}\index{ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}!get\_by\_index@{get\_by\_index}}
+\index{get\_by\_index@{get\_by\_index}!ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}}
+\doxysubsubsection{\texorpdfstring{get\_by\_index()}{get\_by\_index()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_system_logger_a1e5d24c7e1427aefe1c3d479184d9f6f} 
+template$<$typename Traits$>$ \\
+const \mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry}{Log\+Entry}} \& \mbox{\hyperlink{class_control_toolbox_1_1_system_logger}{Control\+Toolbox\+::\+System\+Logger}}$<$ Traits $>$\+::get\+\_\+by\+\_\+index (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Access log entry by index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Zero-\/based entry index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Const reference to requested entry 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & For invalid indices \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_control_toolbox_1_1_system_logger_af95002e650aa5646c2c266181069ba4c}\index{ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}!get\_by\_time@{get\_by\_time}}
+\index{get\_by\_time@{get\_by\_time}!ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}}
+\doxysubsubsection{\texorpdfstring{get\_by\_time()}{get\_by\_time()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_system_logger_af95002e650aa5646c2c266181069ba4c} 
+template$<$typename Traits$>$ \\
+const \mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry}{Log\+Entry}} \& \mbox{\hyperlink{class_control_toolbox_1_1_system_logger}{Control\+Toolbox\+::\+System\+Logger}}$<$ Traits $>$\+::get\+\_\+by\+\_\+time (\begin{DoxyParamCaption}\item[{double}]{t}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Find entry by exact timestamp match. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Target simulation time \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Const reference to matching entry 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & If no exact match found \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_control_toolbox_1_1_system_logger_a729aaf50b82154e26ea5c419c8b38c5a}\index{ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}!get\_state\_component@{get\_state\_component}}
+\index{get\_state\_component@{get\_state\_component}!ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}}
+\doxysubsubsection{\texorpdfstring{get\_state\_component()}{get\_state\_component()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_system_logger_a729aaf50b82154e26ea5c419c8b38c5a} 
+template$<$typename Traits$>$ \\
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_control_toolbox_1_1_system_logger}{Control\+Toolbox\+::\+System\+Logger}}$<$ Traits $>$\+::get\+\_\+state\+\_\+component (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{idx}{, }\item[{double}]{t\+\_\+start}{, }\item[{double}]{t\+\_\+end}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Extract state component history in time window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & State vector component index \\
+\hline
+{\em t\+\_\+start} & Start time (inclusive) \\
+\hline
+{\em t\+\_\+end} & End time (inclusive) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of component values in specified range 
+\end{DoxyReturn}
+\Hypertarget{class_control_toolbox_1_1_system_logger_a3f760d2a009d8c0836479ce299a3ca47}\index{ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}!log@{log}}
+\index{log@{log}!ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_system_logger_a3f760d2a009d8c0836479ce299a3ca47} 
+template$<$typename Traits$>$ \\
+void \mbox{\hyperlink{class_control_toolbox_1_1_system_logger}{Control\+Toolbox\+::\+System\+Logger}}$<$ Traits $>$\+::log (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry}{Log\+Entry}} \&}]{entry}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Record a new system state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & Complete system snapshot to log \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If timestamps are non-\/monotonic \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_control_toolbox_1_1_system_logger_a6257ef0e38e578c3d3e7fa0b91e9eb84}\index{ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}!time\_range@{time\_range}}
+\index{time\_range@{time\_range}!ControlToolbox::SystemLogger$<$ Traits $>$@{ControlToolbox::SystemLogger$<$ Traits $>$}}
+\doxysubsubsection{\texorpdfstring{time\_range()}{time\_range()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_system_logger_a6257ef0e38e578c3d3e7fa0b91e9eb84} 
+template$<$typename Traits$>$ \\
+std\+::pair$<$ double, double $>$ \mbox{\hyperlink{class_control_toolbox_1_1_system_logger}{Control\+Toolbox\+::\+System\+Logger}}$<$ Traits $>$\+::time\+\_\+range (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get simulation time boundaries. 
+
+\begin{DoxyReturn}{Returns}
+Pair of \mbox{[}start\+\_\+time, end\+\_\+time\mbox{]} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/control\+\_\+toolbox/\mbox{\hyperlink{_logger_8hpp}{Logger.\+hpp}}\end{DoxyCompactItemize}

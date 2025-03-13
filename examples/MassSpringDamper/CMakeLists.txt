@@ -1,0 +1,3 @@
+# examples/MassSpringDamper/CMakeLists.txt
+add_executable(MassSpringDamper MassSpringDamper.cpp)
+target_link_libraries(MassSpringDamper PRIVATE ControlToolbox)

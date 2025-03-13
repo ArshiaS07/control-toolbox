@@ -1,0 +1,56 @@
+\doxysection{examples/\+Mass\+Spring\+Damper/\+Mass\+Spring\+Damper.cpp File Reference}
+\hypertarget{_mass_spring_damper_8cpp}{}\label{_mass_spring_damper_8cpp}\index{examples/MassSpringDamper/MassSpringDamper.cpp@{examples/MassSpringDamper/MassSpringDamper.cpp}}
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include "{}control\+\_\+toolbox/\+System\+Traits.\+hpp"{}}\newline
+{\ttfamily \#include "{}control\+\_\+toolbox/\+State\+Space\+System.\+hpp"{}}\newline
+{\ttfamily \#include "{}control\+\_\+toolbox/solvers/\+RK4\+Solver.\+hpp"{}}\newline
+{\ttfamily \#include "{}control\+\_\+toolbox/\+Simulation.\+hpp"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_control_toolbox_1_1_mass_spring_damper_traits}{Control\+Toolbox\+::\+Mass\+Spring\+Damper\+Traits}}
+\begin{DoxyCompactList}\small\item\em System traits for mass-\/spring-\/damper system. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_control_toolbox_1_1_mass_spring_damper_traits_1_1_parameters}{Control\+Toolbox\+::\+Mass\+Spring\+Damper\+Traits\+::\+Parameters}}
+\item 
+class \mbox{\hyperlink{class_control_toolbox_1_1_mass_spring_damper_system}{Control\+Toolbox\+::\+Mass\+Spring\+Damper\+System}}
+\begin{DoxyCompactList}\small\item\em Mass-\/spring-\/damper system implementation with PID control. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_control_toolbox}{Control\+Toolbox}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_mass_spring_damper_8cpp_a525335710b53cb064ca56b936120431e}{\+\_\+\+USE\+\_\+\+MATH\+\_\+\+DEFINES}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_mass_spring_damper_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function for mass-\/spring-\/damper validation case. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_mass_spring_damper_8cpp_a525335710b53cb064ca56b936120431e}\index{MassSpringDamper.cpp@{MassSpringDamper.cpp}!\_USE\_MATH\_DEFINES@{\_USE\_MATH\_DEFINES}}
+\index{\_USE\_MATH\_DEFINES@{\_USE\_MATH\_DEFINES}!MassSpringDamper.cpp@{MassSpringDamper.cpp}}
+\doxysubsubsection{\texorpdfstring{\_USE\_MATH\_DEFINES}{\_USE\_MATH\_DEFINES}}
+{\footnotesize\ttfamily \label{_mass_spring_damper_8cpp_a525335710b53cb064ca56b936120431e} 
+\#define \+\_\+\+USE\+\_\+\+MATH\+\_\+\+DEFINES}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_mass_spring_damper_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{MassSpringDamper.cpp@{MassSpringDamper.cpp}!main@{main}}
+\index{main@{main}!MassSpringDamper.cpp@{MassSpringDamper.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{_mass_spring_damper_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Main function for mass-\/spring-\/damper validation case. 
+
+Generates simulation data comparable with MATLAB results Outputs CSV to validation/data/cpp/\+Mass\+Spring\+Damper.\+csv 

@@ -1,0 +1,36 @@
+\doxysection{RK4\+Solver.\+hpp}
+\hypertarget{_r_k4_solver_8hpp_source}{}\label{_r_k4_solver_8hpp_source}\index{include/control\_toolbox/solvers/RK4Solver.hpp@{include/control\_toolbox/solvers/RK4Solver.hpp}}
+\mbox{\hyperlink{_r_k4_solver_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ SPDX-\/FileCopyrightText:\ 2025\ Arshia\ Saffari}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ GNU\ GPLv3}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_solver_base_8hpp}{SolverBase.hpp}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_control_toolbox}{ControlToolbox}}\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ System>}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver}{RK4Solver}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{SolverBase}}<RK4Solver<System>,\ System>\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver_adc72f219b3c725a74a6bff7a8a6d0a0c}{Base}}\ =\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{SolverBase<RK4Solver<System>}},\ System>;\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }typename\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{Base::StateVector}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }typename\ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Base::TimeType}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver_af93d3fd2fc6ed793e04cd3f8e0fa8195}{StateVector}}\ \mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver_a925401b7fe63106482066f490e0189bb}{step\_impl}}(System\&\ system,\ \mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver_a362184dbf49417dae3abce96ecb0b46e}{TimeType}}\ t,}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver_af93d3fd2fc6ed793e04cd3f8e0fa8195}{StateVector}}\&\ x,\ \mbox{\hyperlink{class_control_toolbox_1_1_r_k4_solver_a362184dbf49417dae3abce96ecb0b46e}{TimeType}}\ dt)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ First\ stage\ (with\ logging)}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ k1\ =\ system.computeSystemDerivative(t,\ x,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Subsequent\ stages\ (no\ logging)}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ k2\ =\ system.computeSystemDerivative(t\ +\ dt/2,\ x\ +\ dt*k1/2,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ k3\ =\ system.computeSystemDerivative(t\ +\ dt/2,\ x\ +\ dt*k2/2,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ k4\ =\ system.computeSystemDerivative(t\ +\ dt,\ x\ +\ dt*k3,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x\ +\ dt*(k1\ +\ 2*k2\ +\ 2*k3\ +\ k4)/6;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \}\ \textcolor{comment}{//\ namespace\ ControlToolbox}}
+
+\end{DoxyCode}

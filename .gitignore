@@ -1,0 +1,26 @@
+# Visual Studio
+.vs/
+vs2022/User/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.exe
+/vs2022/**/*
+.vscode
+
+# Dependencies
+thirdparty/**/*       # Except .gitmodules if using submodules
+
+# Build artifacts
+build/
+vs2022/User/
+
+# IDE
+.vs/
+.vscode/launch.json
+.vscode/tasks.json
+
+# Python
+.env/
+.venv/
+venv/

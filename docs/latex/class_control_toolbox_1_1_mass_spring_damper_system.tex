@@ -1,0 +1,183 @@
+\doxysection{Control\+Toolbox\+::Mass\+Spring\+Damper\+System Class Reference}
+\hypertarget{class_control_toolbox_1_1_mass_spring_damper_system}{}\label{class_control_toolbox_1_1_mass_spring_damper_system}\index{ControlToolbox::MassSpringDamperSystem@{ControlToolbox::MassSpringDamperSystem}}
+
+
+Mass-\/spring-\/damper system implementation with PID control.  
+
+
+Inheritance diagram for Control\+Toolbox\+::Mass\+Spring\+Damper\+System\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.645446cm]{class_control_toolbox_1_1_mass_spring_damper_system}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_mass_spring_damper_system_a9b1be5b9861cbdf3962402416693c7ae}{Mass\+Spring\+Damper\+System}} ()=default
+\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Output\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_mass_spring_damper_system_a433de9507888c3a6c180b9096a4bbbe9}{compute\+Reference\+\_\+impl}} (double t) const
+\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{Input\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_mass_spring_damper_system_a9fa1ec969536a6fa872eb2d0c853dd19}{compute\+Controller\+\_\+impl}} (double t, const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Output\+Vector}} \&ref, const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Output\+Vector}} \&out, const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} \&x) const
+\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Output\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_mass_spring_damper_system_ad9522d018113d6f36ecea06272ecffa0}{compute\+Output\+\_\+impl}} (double t, const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} \&x, const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{Input\+Vector}} \&u) const
+\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_mass_spring_damper_system_ac094a11aeeb9d8963566c36026422951}{compute\+Dynamics\+\_\+impl}} (double t, const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} \&x, const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{Input\+Vector}} \&u) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system}{Control\+Toolbox\+::\+State\+Space\+System$<$ Mass\+Spring\+Damper\+System, Mass\+Spring\+Damper\+Traits $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_ae4ca1b8a65c6480128d42090db60a9bc}{compute\+Dynamics}} (double t, const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} \&x, const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{Input\+Vector}} \&u) const
+\begin{DoxyCompactList}\small\item\em Compute system dynamics (dx/dt = f(t, x, u)) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Output\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a2bff38212e8217e888d8fb822899ae07}{compute\+Output}} (double t, const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} \&x, const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{Input\+Vector}} \&u) const
+\begin{DoxyCompactList}\small\item\em Compute system output (y = g(t, x, u)) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9ab7f10d35bd15c5ea88ef0817c9433f}{compute\+System\+Derivative}} (double t, const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} \&x, bool log=true)
+\begin{DoxyCompactList}\small\item\em Execute complete simulation step with signal processing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aa175a8de5b4a15f62e81ea2c5f184ae9}{Logger\+Type}} \& \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_ad8b7b967af767352d57ee214332d45d6}{get\+Logger}} () const
+\begin{DoxyCompactList}\small\item\em Access system logger (const version) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aa175a8de5b4a15f62e81ea2c5f184ae9}{Logger\+Type}} \& \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a7a29498b6646ca722389483041ec6780}{get\+Logger}} ()
+\begin{DoxyCompactList}\small\item\em Access system logger (mutable version) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system}{Control\+Toolbox\+::\+State\+Space\+System$<$ Mass\+Spring\+Damper\+System, Mass\+Spring\+Damper\+Traits $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}}
+\begin{DoxyCompactList}\small\item\em State vector type. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{Input\+Vector}}
+\begin{DoxyCompactList}\small\item\em Input vector type. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Output\+Vector}}
+\begin{DoxyCompactList}\small\item\em Output vector type. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aa175a8de5b4a15f62e81ea2c5f184ae9}{Logger\+Type}}
+\begin{DoxyCompactList}\small\item\em Data logger type. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_af3058af1705c69517e8c363f3db1c885}{Parameters}}
+\begin{DoxyCompactList}\small\item\em System parameters type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system}{Control\+Toolbox\+::\+State\+Space\+System$<$ Mass\+Spring\+Damper\+System, Mass\+Spring\+Damper\+Traits $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Output\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_acb64e0b82494c4ea6b7f462d636ca129}{add\+Output\+Noise}} (const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Output\+Vector}} \&y, double) const
+\begin{DoxyCompactList}\small\item\em Add output measurement noise. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{Input\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a560d9650e3cbd50988e2ae56cd1f4f8f}{add\+Input\+Disturbance}} (const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{Input\+Vector}} \&u, double) const
+\begin{DoxyCompactList}\small\item\em Add input disturbances. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system}{Control\+Toolbox\+::\+State\+Space\+System$<$ Mass\+Spring\+Damper\+System, Mass\+Spring\+Damper\+Traits $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_af3058af1705c69517e8c363f3db1c885}{Parameters}} \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_ae3c34c1ab7ee4face2617bb640e64f4d}{parameters\+\_\+}}
+\begin{DoxyCompactList}\small\item\em System parameter storage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Mass-\/spring-\/damper system implementation with PID control. 
+
+Implements\+:
+\begin{DoxyItemize}
+\item System dynamics
+\item PID controller with derivative filtering
+\item Sinusoidal reference tracking 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_control_toolbox_1_1_mass_spring_damper_system_a9b1be5b9861cbdf3962402416693c7ae}\index{ControlToolbox::MassSpringDamperSystem@{ControlToolbox::MassSpringDamperSystem}!MassSpringDamperSystem@{MassSpringDamperSystem}}
+\index{MassSpringDamperSystem@{MassSpringDamperSystem}!ControlToolbox::MassSpringDamperSystem@{ControlToolbox::MassSpringDamperSystem}}
+\doxysubsubsection{\texorpdfstring{MassSpringDamperSystem()}{MassSpringDamperSystem()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_mass_spring_damper_system_a9b1be5b9861cbdf3962402416693c7ae} 
+Control\+Toolbox\+::\+Mass\+Spring\+Damper\+System\+::\+Mass\+Spring\+Damper\+System (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_control_toolbox_1_1_mass_spring_damper_system_a9fa1ec969536a6fa872eb2d0c853dd19}\index{ControlToolbox::MassSpringDamperSystem@{ControlToolbox::MassSpringDamperSystem}!computeController\_impl@{computeController\_impl}}
+\index{computeController\_impl@{computeController\_impl}!ControlToolbox::MassSpringDamperSystem@{ControlToolbox::MassSpringDamperSystem}}
+\doxysubsubsection{\texorpdfstring{computeController\_impl()}{computeController\_impl()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_mass_spring_damper_system_a9fa1ec969536a6fa872eb2d0c853dd19} 
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{Mass\+Spring\+Damper\+System\+::\+Input\+Vector}} Control\+Toolbox\+::\+Mass\+Spring\+Damper\+System\+::compute\+Controller\+\_\+impl (\begin{DoxyParamCaption}\item[{double}]{t}{, }\item[{const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Output\+Vector}} \&}]{ref}{, }\item[{const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Output\+Vector}} \&}]{out}{, }\item[{const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} \&}]{x}{}\end{DoxyParamCaption}) const}
+
+Implements discrete-\/time PID controller with derivative filtering
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Current simulation time \\
+\hline
+{\em ref} & Reference signal vector \\
+\hline
+{\em out} & System output vector \\
+\hline
+{\em x} & Current state vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{Input\+Vector} Control force \mbox{[}N\mbox{]}
+\end{DoxyReturn}
+Control law implementation\+:
+\begin{DoxyEnumerate}
+\item Error calculation\+: $ e = r - y $
+\item Filtered derivative using Tustin approximation\+:   \[d_k = \frac{2Nk_d(e_k - e_{k-1}) - (N\Delta t - 2)d_{k-1}}{N\Delta t + 2}
+\]
+\item Integral term using forward Euler\+:   \[i_k = i_{k-1} + k_i e_k \Delta t
+\]
+\item PID output\+: $ u = k_p e + d_k + i_k $
+\end{DoxyEnumerate}\Hypertarget{class_control_toolbox_1_1_mass_spring_damper_system_ac094a11aeeb9d8963566c36026422951}\index{ControlToolbox::MassSpringDamperSystem@{ControlToolbox::MassSpringDamperSystem}!computeDynamics\_impl@{computeDynamics\_impl}}
+\index{computeDynamics\_impl@{computeDynamics\_impl}!ControlToolbox::MassSpringDamperSystem@{ControlToolbox::MassSpringDamperSystem}}
+\doxysubsubsection{\texorpdfstring{computeDynamics\_impl()}{computeDynamics\_impl()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_mass_spring_damper_system_ac094a11aeeb9d8963566c36026422951} 
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{Mass\+Spring\+Damper\+System\+::\+State\+Vector}} Control\+Toolbox\+::\+Mass\+Spring\+Damper\+System\+::compute\+Dynamics\+\_\+impl (\begin{DoxyParamCaption}\item[{double}]{t}{, }\item[{const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} \&}]{x}{, }\item[{const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{Input\+Vector}} \&}]{u}{}\end{DoxyParamCaption}) const}
+
+Implements mass-\/spring-\/damper dynamics
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & State vector \mbox{[}position (m), velocity (m/s)\mbox{]} \\
+\hline
+{\em u} & Control force \mbox{[}N\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector} State derivatives \mbox{[}velocity, acceleration\mbox{]}
+\end{DoxyReturn}
+Dynamics equations\+:      \[\begin{cases}
+\dot{x}_1 = x_2 \\
+\dot{x}_2 = \frac{1}{m}(u - c x_2 - k x_1)
+\end{cases}
+\]\Hypertarget{class_control_toolbox_1_1_mass_spring_damper_system_ad9522d018113d6f36ecea06272ecffa0}\index{ControlToolbox::MassSpringDamperSystem@{ControlToolbox::MassSpringDamperSystem}!computeOutput\_impl@{computeOutput\_impl}}
+\index{computeOutput\_impl@{computeOutput\_impl}!ControlToolbox::MassSpringDamperSystem@{ControlToolbox::MassSpringDamperSystem}}
+\doxysubsubsection{\texorpdfstring{computeOutput\_impl()}{computeOutput\_impl()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_mass_spring_damper_system_ad9522d018113d6f36ecea06272ecffa0} 
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Mass\+Spring\+Damper\+System\+::\+Output\+Vector}} Control\+Toolbox\+::\+Mass\+Spring\+Damper\+System\+::compute\+Output\+\_\+impl (\begin{DoxyParamCaption}\item[{double}]{t}{, }\item[{const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} \&}]{x}{, }\item[{const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{Input\+Vector}} \&}]{u}{}\end{DoxyParamCaption}) const}
+
+Outputs system position measurement
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Current state vector \mbox{[}position, velocity\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Output\+Vector} Measured position \mbox{[}m\mbox{]}
+\end{DoxyReturn}
+\Hypertarget{class_control_toolbox_1_1_mass_spring_damper_system_a433de9507888c3a6c180b9096a4bbbe9}\index{ControlToolbox::MassSpringDamperSystem@{ControlToolbox::MassSpringDamperSystem}!computeReference\_impl@{computeReference\_impl}}
+\index{computeReference\_impl@{computeReference\_impl}!ControlToolbox::MassSpringDamperSystem@{ControlToolbox::MassSpringDamperSystem}}
+\doxysubsubsection{\texorpdfstring{computeReference\_impl()}{computeReference\_impl()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_mass_spring_damper_system_a433de9507888c3a6c180b9096a4bbbe9} 
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Mass\+Spring\+Damper\+System\+::\+Output\+Vector}} Control\+Toolbox\+::\+Mass\+Spring\+Damper\+System\+::compute\+Reference\+\_\+impl (\begin{DoxyParamCaption}\item[{double}]{t}{}\end{DoxyParamCaption}) const}
+
+Generates sinusoidal reference signal
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Current simulation time (seconds) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Output\+Vector} Reference position \mbox{[}m\mbox{]}
+\end{DoxyReturn}
+Implements\+:   \[r(t) = A \sin(\omega t)
+\] Where\+:
+\begin{DoxyItemize}
+\item $ A $ = ref\+Signal\+\_\+.\+amplitude
+\item $ \omega $ = ref\+Signal\+\_\+.\+frequency \mbox{[}rad/s\mbox{]}
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+examples/\+Mass\+Spring\+Damper/\mbox{\hyperlink{_mass_spring_damper_8cpp}{Mass\+Spring\+Damper.\+cpp}}\end{DoxyCompactItemize}

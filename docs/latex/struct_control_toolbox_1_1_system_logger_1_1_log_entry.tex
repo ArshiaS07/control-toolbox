@@ -1,0 +1,131 @@
+\doxysection{Control\+Toolbox\+::System\+Logger\texorpdfstring{$<$}{<} Traits \texorpdfstring{$>$}{>}\+::Log\+Entry Struct Reference}
+\hypertarget{struct_control_toolbox_1_1_system_logger_1_1_log_entry}{}\label{struct_control_toolbox_1_1_system_logger_1_1_log_entry}\index{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry@{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry}}
+
+
+Complete system snapshot at a specific timestep.  
+
+
+
+
+{\ttfamily \#include $<$Logger.\+hpp$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a96a7bcec953003bab03b4aeb5b0ea0a7}{timestamp}}
+\begin{DoxyCompactList}\small\item\em \doxylink{class_control_toolbox_1_1_simulation}{Simulation} time (seconds) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a9ebf4c14303919f4567ad6811df596d9}{State\+Vector}} \mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a1c8b2101afdaced139d494705bc02e97}{state}}
+\begin{DoxyCompactList}\small\item\em Current system state (x) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a9ebf4c14303919f4567ad6811df596d9}{State\+Vector}} \mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a53436c8a752e25933d4b58adf6ad856e}{derivative}}
+\begin{DoxyCompactList}\small\item\em State derivatives (dx/dt) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a7f830cb58edea5f018d47794ac96d1d7}{Input\+Vector}} \mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a11a8202e14aa8a79f00d0465310ef3d0}{control\+\_\+input}}
+\begin{DoxyCompactList}\small\item\em Computed control signal (u\+\_\+cmd) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a7f830cb58edea5f018d47794ac96d1d7}{Input\+Vector}} \mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry_aa1a5446cd1557e6f8b6bfb78ea8c5f6e}{disturbed\+\_\+input}}
+\begin{DoxyCompactList}\small\item\em Actual input with disturbances (u\+\_\+actual) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a528b6e8ce8adbfa2b1fb5532ff4c00af}{Output\+Vector}} \mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a42ac05549773ebcbbfb072b8e83f9b6a}{reference}}
+\begin{DoxyCompactList}\small\item\em Reference signal (r) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a528b6e8ce8adbfa2b1fb5532ff4c00af}{Output\+Vector}} \mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry_afd1cd2688c99477d819b8002aa311b43}{output\+\_\+clean}}
+\begin{DoxyCompactList}\small\item\em Ideal sensor output (y\+\_\+ideal) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a528b6e8ce8adbfa2b1fb5532ff4c00af}{Output\+Vector}} \mbox{\hyperlink{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a27bb63bd203628c844e6aceaacdd48b1}{output\+\_\+noisy}}
+\begin{DoxyCompactList}\small\item\em Noisy sensor output (y\+\_\+measured) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Traits$>$\newline
+struct Control\+Toolbox\+::\+System\+Logger$<$ Traits $>$\+::\+Log\+Entry}
+Complete system snapshot at a specific timestep. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a11a8202e14aa8a79f00d0465310ef3d0}\index{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry@{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry}!control\_input@{control\_input}}
+\index{control\_input@{control\_input}!ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry@{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry}}
+\doxysubsubsection{\texorpdfstring{control\_input}{control\_input}}
+{\footnotesize\ttfamily \label{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a11a8202e14aa8a79f00d0465310ef3d0} 
+template$<$typename Traits$>$ \\
+\mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a7f830cb58edea5f018d47794ac96d1d7}{Input\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_system_logger}{Control\+Toolbox\+::\+System\+Logger}}$<$ Traits $>$\+::\+Log\+Entry\+::control\+\_\+input}
+
+
+
+Computed control signal (u\+\_\+cmd) 
+
+\Hypertarget{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a53436c8a752e25933d4b58adf6ad856e}\index{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry@{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry}!derivative@{derivative}}
+\index{derivative@{derivative}!ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry@{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry}}
+\doxysubsubsection{\texorpdfstring{derivative}{derivative}}
+{\footnotesize\ttfamily \label{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a53436c8a752e25933d4b58adf6ad856e} 
+template$<$typename Traits$>$ \\
+\mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a9ebf4c14303919f4567ad6811df596d9}{State\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_system_logger}{Control\+Toolbox\+::\+System\+Logger}}$<$ Traits $>$\+::\+Log\+Entry\+::derivative}
+
+
+
+State derivatives (dx/dt) 
+
+\Hypertarget{struct_control_toolbox_1_1_system_logger_1_1_log_entry_aa1a5446cd1557e6f8b6bfb78ea8c5f6e}\index{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry@{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry}!disturbed\_input@{disturbed\_input}}
+\index{disturbed\_input@{disturbed\_input}!ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry@{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry}}
+\doxysubsubsection{\texorpdfstring{disturbed\_input}{disturbed\_input}}
+{\footnotesize\ttfamily \label{struct_control_toolbox_1_1_system_logger_1_1_log_entry_aa1a5446cd1557e6f8b6bfb78ea8c5f6e} 
+template$<$typename Traits$>$ \\
+\mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a7f830cb58edea5f018d47794ac96d1d7}{Input\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_system_logger}{Control\+Toolbox\+::\+System\+Logger}}$<$ Traits $>$\+::\+Log\+Entry\+::disturbed\+\_\+input}
+
+
+
+Actual input with disturbances (u\+\_\+actual) 
+
+\Hypertarget{struct_control_toolbox_1_1_system_logger_1_1_log_entry_afd1cd2688c99477d819b8002aa311b43}\index{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry@{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry}!output\_clean@{output\_clean}}
+\index{output\_clean@{output\_clean}!ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry@{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry}}
+\doxysubsubsection{\texorpdfstring{output\_clean}{output\_clean}}
+{\footnotesize\ttfamily \label{struct_control_toolbox_1_1_system_logger_1_1_log_entry_afd1cd2688c99477d819b8002aa311b43} 
+template$<$typename Traits$>$ \\
+\mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a528b6e8ce8adbfa2b1fb5532ff4c00af}{Output\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_system_logger}{Control\+Toolbox\+::\+System\+Logger}}$<$ Traits $>$\+::\+Log\+Entry\+::output\+\_\+clean}
+
+
+
+Ideal sensor output (y\+\_\+ideal) 
+
+\Hypertarget{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a27bb63bd203628c844e6aceaacdd48b1}\index{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry@{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry}!output\_noisy@{output\_noisy}}
+\index{output\_noisy@{output\_noisy}!ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry@{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry}}
+\doxysubsubsection{\texorpdfstring{output\_noisy}{output\_noisy}}
+{\footnotesize\ttfamily \label{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a27bb63bd203628c844e6aceaacdd48b1} 
+template$<$typename Traits$>$ \\
+\mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a528b6e8ce8adbfa2b1fb5532ff4c00af}{Output\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_system_logger}{Control\+Toolbox\+::\+System\+Logger}}$<$ Traits $>$\+::\+Log\+Entry\+::output\+\_\+noisy}
+
+
+
+Noisy sensor output (y\+\_\+measured) 
+
+\Hypertarget{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a42ac05549773ebcbbfb072b8e83f9b6a}\index{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry@{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry}!reference@{reference}}
+\index{reference@{reference}!ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry@{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry}}
+\doxysubsubsection{\texorpdfstring{reference}{reference}}
+{\footnotesize\ttfamily \label{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a42ac05549773ebcbbfb072b8e83f9b6a} 
+template$<$typename Traits$>$ \\
+\mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a528b6e8ce8adbfa2b1fb5532ff4c00af}{Output\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_system_logger}{Control\+Toolbox\+::\+System\+Logger}}$<$ Traits $>$\+::\+Log\+Entry\+::reference}
+
+
+
+Reference signal (r) 
+
+\Hypertarget{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a1c8b2101afdaced139d494705bc02e97}\index{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry@{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry}!state@{state}}
+\index{state@{state}!ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry@{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily \label{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a1c8b2101afdaced139d494705bc02e97} 
+template$<$typename Traits$>$ \\
+\mbox{\hyperlink{class_control_toolbox_1_1_system_logger_a9ebf4c14303919f4567ad6811df596d9}{State\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_system_logger}{Control\+Toolbox\+::\+System\+Logger}}$<$ Traits $>$\+::\+Log\+Entry\+::state}
+
+
+
+Current system state (x) 
+
+\Hypertarget{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a96a7bcec953003bab03b4aeb5b0ea0a7}\index{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry@{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry@{ControlToolbox::SystemLogger$<$ Traits $>$::LogEntry}}
+\doxysubsubsection{\texorpdfstring{timestamp}{timestamp}}
+{\footnotesize\ttfamily \label{struct_control_toolbox_1_1_system_logger_1_1_log_entry_a96a7bcec953003bab03b4aeb5b0ea0a7} 
+template$<$typename Traits$>$ \\
+double \mbox{\hyperlink{class_control_toolbox_1_1_system_logger}{Control\+Toolbox\+::\+System\+Logger}}$<$ Traits $>$\+::\+Log\+Entry\+::timestamp}
+
+
+
+\doxylink{class_control_toolbox_1_1_simulation}{Simulation} time (seconds) 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/control\+\_\+toolbox/\mbox{\hyperlink{_logger_8hpp}{Logger.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,61 @@
+\doxysection{Simulation.\+hpp}
+\hypertarget{_simulation_8hpp_source}{}\label{_simulation_8hpp_source}\index{include/control\_toolbox/Simulation.hpp@{include/control\_toolbox/Simulation.hpp}}
+\mbox{\hyperlink{_simulation_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ SPDX-\/FileCopyrightText:\ 2025\ Arshia\ Saffari}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ GNU\ GPLv3}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_solver_base_8hpp}{control\_toolbox/solvers/SolverBase.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_logger_8hpp}{Logger.hpp}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_control_toolbox}{ControlToolbox}}\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ System,\ \textcolor{keyword}{typename}\ Solver>}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_control_toolbox_1_1_simulation_aea705f272054265c16d820faba9836d8}{Simulation}}\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_control_toolbox_1_1_simulation_a75d5c399000e8e0ec78ece288ce653e3}{StateVector}}\ =\ \textcolor{keyword}{typename}\ System::StateVector;\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_control_toolbox_1_1_simulation_a97b7ee354722dd9ac65bd49c146af28e}{TimeType}}\ =\ \textcolor{keyword}{typename}\ Solver::TimeType;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_simulation_aea705f272054265c16d820faba9836d8}{Simulation}}(std::shared\_ptr<System>\ system,}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<Solver>\ solver,}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_simulation_a75d5c399000e8e0ec78ece288ce653e3}{StateVector}}\ initial\_state,}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_simulation_a97b7ee354722dd9ac65bd49c146af28e}{TimeType}}\ initial\_time\ =\ 0.0)}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ :\ system\_(std::move(system)),}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ solver\_(std::move(solver)),}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\_(std::move(initial\_state)),}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ time\_(initial\_time)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_control_toolbox_1_1_simulation_ab4086b7c95a0e256ac339faef72f322d}{run}}(\mbox{\hyperlink{class_control_toolbox_1_1_simulation_a97b7ee354722dd9ac65bd49c146af28e}{TimeType}}\ dt)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!solver\_-\/>should\_stop(time\_,\ state\_))\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Store\ previous\ state\ for\ potential\ logging}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ prev\_state\ =\ state\_;}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Integration\ step\ (triggers\ logging\ internally)}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\_\ =\ solver\_-\/>step(*system\_,\ time\_,\ state\_,\ dt);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ time\_\ +=\ dt;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{class_control_toolbox_1_1_simulation_a962de87bc80bfda8c9b705ca9db40f43}{get\_logger}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ system\_-\/>getLogger();\ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_simulation_a97b7ee354722dd9ac65bd49c146af28e}{TimeType}}\ \mbox{\hyperlink{class_control_toolbox_1_1_simulation_ae9e7c71922e7df89b8c3082665dfe231}{current\_time}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ time\_;\ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_control_toolbox_1_1_simulation_a75d5c399000e8e0ec78ece288ce653e3}{StateVector}}\&\ \mbox{\hyperlink{class_control_toolbox_1_1_simulation_a96df6614215f1c3f7a3b4231b6f7efe5}{current\_state}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ state\_;\ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ std::shared\_ptr<System>\ system\_;\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ std::shared\_ptr<Solver>\ solver\_;\ }
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_simulation_a75d5c399000e8e0ec78ece288ce653e3}{StateVector}}\ state\_;\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_control_toolbox_1_1_simulation_a97b7ee354722dd9ac65bd49c146af28e}{TimeType}}\ time\_;\ \ \ \ \ }
+\DoxyCodeLine{00114\ \ \ \ \ \};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \}\ \textcolor{comment}{//\ namespace\ ControlToolbox}}
+
+\end{DoxyCode}

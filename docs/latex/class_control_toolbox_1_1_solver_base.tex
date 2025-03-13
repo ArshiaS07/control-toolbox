@@ -1,0 +1,255 @@
+\doxysection{Control\+Toolbox\+::Solver\+Base\texorpdfstring{$<$}{<} Derived, System \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_control_toolbox_1_1_solver_base}{}\label{class_control_toolbox_1_1_solver_base}\index{ControlToolbox::SolverBase$<$ Derived, System $>$@{ControlToolbox::SolverBase$<$ Derived, System $>$}}
+
+
+CRTP base class for numerical integration algorithms.  
+
+
+
+
+{\ttfamily \#include $<$Solver\+Base.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{Indent}\textbf{ Type Aliases}\par
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}} = typename System\+::\+State\+Vector
+\begin{DoxyCompactList}\small\item\em State vector type from system. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}} = double
+\begin{DoxyCompactList}\small\item\em Time representation type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab785ee4a2a9d75c6704f70192f7d072b}{step}} (System \&system, \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}} t, const \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}} \&x, \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}} dt)
+\begin{DoxyCompactList}\small\item\em Execute single integration step. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a89ccd870d0c0d28befb37e3d2547a637}{\texorpdfstring{$\sim$}{\string~}\+Solver\+Base}} ()=default
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Solver Configuration}\par
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a45f0f76a035126a2e551b6102ce02e61}{set\+\_\+stop\+\_\+condition}} (std\+::function$<$ bool(\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}}, const \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}} \&)$>$ condition)
+\begin{DoxyCompactList}\small\item\em Set custom simulation stop condition. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ad248bdc90e853041f64456dd3d755934}{set\+\_\+max\+\_\+time}} (\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}} max\+\_\+time)
+\begin{DoxyCompactList}\small\item\em Set maximum simulation duration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Execution Control}\par
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_aa207f3459ad772f2877544a6bb9d9cd2}{should\+\_\+stop}} (\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}} t, const \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}} \&x) const
+\begin{DoxyCompactList}\small\item\em Evaluate stop conditions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a79d2b6d01eb79f1eb180e221e589324b}{default\+\_\+stop}} (\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}} t) const
+\begin{DoxyCompactList}\small\item\em Default time-\/based stop condition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{Indent}\textbf{ Solver State}\par
+\begin{DoxyCompactItemize}
+\item 
+std\+::function$<$ bool(\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}}, const \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}} \&)$>$ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a33442bb69fb93a38ce7c3732e898834d}{stop\+\_\+condition\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Custom stop condition. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}} \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a96f9f696029453db30324482b1554610}{max\+\_\+time\+\_\+}} = 10.\+0
+\begin{DoxyCompactList}\small\item\em Default maximum simulation time (seconds) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Derived, typename System$>$\newline
+class Control\+Toolbox\+::\+Solver\+Base$<$ Derived, System $>$}
+CRTP base class for numerical integration algorithms. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Derived} & Concrete solver implementation (CRTP derived class) \\
+\hline
+{\em System} & Type of dynamical system to solve (State\+Space\+System-\/based)\\
+\hline
+\end{DoxyTemplParams}
+Provides common interface for\+:
+\begin{DoxyItemize}
+\item Time-\/stepping algorithms
+\item \doxylink{class_control_toolbox_1_1_simulation}{Simulation} control mechanisms
+\item Custom stop conditions
+\item Configuration management
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Derived classes must implement step\+\_\+impl() 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}\index{ControlToolbox::SolverBase$<$ Derived, System $>$@{ControlToolbox::SolverBase$<$ Derived, System $>$}!StateVector@{StateVector}}
+\index{StateVector@{StateVector}!ControlToolbox::SolverBase$<$ Derived, System $>$@{ControlToolbox::SolverBase$<$ Derived, System $>$}}
+\doxysubsubsection{\texorpdfstring{StateVector}{StateVector}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604} 
+template$<$typename Derived, typename System$>$ \\
+using \mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{Control\+Toolbox\+::\+Solver\+Base}}$<$ Derived, System $>$\+::\+State\+Vector = typename System\+::\+State\+Vector}
+
+
+
+State vector type from system. 
+
+\Hypertarget{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}\index{ControlToolbox::SolverBase$<$ Derived, System $>$@{ControlToolbox::SolverBase$<$ Derived, System $>$}!TimeType@{TimeType}}
+\index{TimeType@{TimeType}!ControlToolbox::SolverBase$<$ Derived, System $>$@{ControlToolbox::SolverBase$<$ Derived, System $>$}}
+\doxysubsubsection{\texorpdfstring{TimeType}{TimeType}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3} 
+template$<$typename Derived, typename System$>$ \\
+using \mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{Control\+Toolbox\+::\+Solver\+Base}}$<$ Derived, System $>$\+::\+Time\+Type = double}
+
+
+
+Time representation type. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_control_toolbox_1_1_solver_base_a89ccd870d0c0d28befb37e3d2547a637}\index{ControlToolbox::SolverBase$<$ Derived, System $>$@{ControlToolbox::SolverBase$<$ Derived, System $>$}!````~SolverBase@{\texorpdfstring{$\sim$}{\string~}SolverBase}}
+\index{````~SolverBase@{\texorpdfstring{$\sim$}{\string~}SolverBase}!ControlToolbox::SolverBase$<$ Derived, System $>$@{ControlToolbox::SolverBase$<$ Derived, System $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SolverBase()}{\string~SolverBase()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_solver_base_a89ccd870d0c0d28befb37e3d2547a637} 
+template$<$typename Derived, typename System$>$ \\
+virtual \mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{Control\+Toolbox\+::\+Solver\+Base}}$<$ Derived, System $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{Solver\+Base}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_control_toolbox_1_1_solver_base_a79d2b6d01eb79f1eb180e221e589324b}\index{ControlToolbox::SolverBase$<$ Derived, System $>$@{ControlToolbox::SolverBase$<$ Derived, System $>$}!default\_stop@{default\_stop}}
+\index{default\_stop@{default\_stop}!ControlToolbox::SolverBase$<$ Derived, System $>$@{ControlToolbox::SolverBase$<$ Derived, System $>$}}
+\doxysubsubsection{\texorpdfstring{default\_stop()}{default\_stop()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_solver_base_a79d2b6d01eb79f1eb180e221e589324b} 
+template$<$typename Derived, typename System$>$ \\
+bool \mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{Control\+Toolbox\+::\+Solver\+Base}}$<$ Derived, System $>$\+::default\+\_\+stop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}}}]{t}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Default time-\/based stop condition. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em t} & Current simulation time \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if t \texorpdfstring{$>$}{>} max\+\_\+time\+\_\+ 
+\end{DoxyReturn}
+\Hypertarget{class_control_toolbox_1_1_solver_base_ad248bdc90e853041f64456dd3d755934}\index{ControlToolbox::SolverBase$<$ Derived, System $>$@{ControlToolbox::SolverBase$<$ Derived, System $>$}!set\_max\_time@{set\_max\_time}}
+\index{set\_max\_time@{set\_max\_time}!ControlToolbox::SolverBase$<$ Derived, System $>$@{ControlToolbox::SolverBase$<$ Derived, System $>$}}
+\doxysubsubsection{\texorpdfstring{set\_max\_time()}{set\_max\_time()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_solver_base_ad248bdc90e853041f64456dd3d755934} 
+template$<$typename Derived, typename System$>$ \\
+void \mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{Control\+Toolbox\+::\+Solver\+Base}}$<$ Derived, System $>$\+::set\+\_\+max\+\_\+time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}}}]{max\+\_\+time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set maximum simulation duration. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em max\+\_\+time} & Maximum simulation time (seconds) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_control_toolbox_1_1_solver_base_a45f0f76a035126a2e551b6102ce02e61}\index{ControlToolbox::SolverBase$<$ Derived, System $>$@{ControlToolbox::SolverBase$<$ Derived, System $>$}!set\_stop\_condition@{set\_stop\_condition}}
+\index{set\_stop\_condition@{set\_stop\_condition}!ControlToolbox::SolverBase$<$ Derived, System $>$@{ControlToolbox::SolverBase$<$ Derived, System $>$}}
+\doxysubsubsection{\texorpdfstring{set\_stop\_condition()}{set\_stop\_condition()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_solver_base_a45f0f76a035126a2e551b6102ce02e61} 
+template$<$typename Derived, typename System$>$ \\
+void \mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{Control\+Toolbox\+::\+Solver\+Base}}$<$ Derived, System $>$\+::set\+\_\+stop\+\_\+condition (\begin{DoxyParamCaption}\item[{std\+::function$<$ bool(\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}}, const \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}} \&)$>$}]{condition}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set custom simulation stop condition. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em condition} & Function evaluating stop condition\+: {\ttfamily bool(\doxylink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type} t, const \doxylink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}\& x)}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Overrides default time-\/based stopping 
+\end{DoxyWarning}
+\Hypertarget{class_control_toolbox_1_1_solver_base_aa207f3459ad772f2877544a6bb9d9cd2}\index{ControlToolbox::SolverBase$<$ Derived, System $>$@{ControlToolbox::SolverBase$<$ Derived, System $>$}!should\_stop@{should\_stop}}
+\index{should\_stop@{should\_stop}!ControlToolbox::SolverBase$<$ Derived, System $>$@{ControlToolbox::SolverBase$<$ Derived, System $>$}}
+\doxysubsubsection{\texorpdfstring{should\_stop()}{should\_stop()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_solver_base_aa207f3459ad772f2877544a6bb9d9cd2} 
+template$<$typename Derived, typename System$>$ \\
+bool \mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{Control\+Toolbox\+::\+Solver\+Base}}$<$ Derived, System $>$\+::should\+\_\+stop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}}}]{t}{, }\item[{const \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}} \&}]{x}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Evaluate stop conditions. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em t} & Current simulation time \\
+\hline
+\mbox{\texttt{ in}}  & {\em x} & Current state vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if simulation should stop, false otherwise
+\end{DoxyReturn}
+Evaluation order\+:
+\begin{DoxyEnumerate}
+\item Custom stop condition (if set)
+\item Default time-\/based condition 
+\end{DoxyEnumerate}\Hypertarget{class_control_toolbox_1_1_solver_base_ab785ee4a2a9d75c6704f70192f7d072b}\index{ControlToolbox::SolverBase$<$ Derived, System $>$@{ControlToolbox::SolverBase$<$ Derived, System $>$}!step@{step}}
+\index{step@{step}!ControlToolbox::SolverBase$<$ Derived, System $>$@{ControlToolbox::SolverBase$<$ Derived, System $>$}}
+\doxysubsubsection{\texorpdfstring{step()}{step()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_solver_base_ab785ee4a2a9d75c6704f70192f7d072b} 
+template$<$typename Derived, typename System$>$ \\
+\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{Control\+Toolbox\+::\+Solver\+Base}}$<$ Derived, System $>$\+::step (\begin{DoxyParamCaption}\item[{System \&}]{system}{, }\item[{\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}}}]{t}{, }\item[{const \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}} \&}]{x}{, }\item[{\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}}}]{dt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Execute single integration step. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em system} & System to integrate \\
+\hline
+\mbox{\texttt{ in}}  & {\em t} & Current simulation time \\
+\hline
+\mbox{\texttt{ in}}  & {\em x} & Current state vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em dt} & Time step size (seconds) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector} New state after integration
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+CRTP requirement\+: Derived classes must implement step\+\_\+impl() 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_control_toolbox_1_1_solver_base_a96f9f696029453db30324482b1554610}\index{ControlToolbox::SolverBase$<$ Derived, System $>$@{ControlToolbox::SolverBase$<$ Derived, System $>$}!max\_time\_@{max\_time\_}}
+\index{max\_time\_@{max\_time\_}!ControlToolbox::SolverBase$<$ Derived, System $>$@{ControlToolbox::SolverBase$<$ Derived, System $>$}}
+\doxysubsubsection{\texorpdfstring{max\_time\_}{max\_time\_}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_solver_base_a96f9f696029453db30324482b1554610} 
+template$<$typename Derived, typename System$>$ \\
+\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}} \mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{Control\+Toolbox\+::\+Solver\+Base}}$<$ Derived, System $>$\+::max\+\_\+time\+\_\+ = 10.\+0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Default maximum simulation time (seconds) 
+
+\Hypertarget{class_control_toolbox_1_1_solver_base_a33442bb69fb93a38ce7c3732e898834d}\index{ControlToolbox::SolverBase$<$ Derived, System $>$@{ControlToolbox::SolverBase$<$ Derived, System $>$}!stop\_condition\_@{stop\_condition\_}}
+\index{stop\_condition\_@{stop\_condition\_}!ControlToolbox::SolverBase$<$ Derived, System $>$@{ControlToolbox::SolverBase$<$ Derived, System $>$}}
+\doxysubsubsection{\texorpdfstring{stop\_condition\_}{stop\_condition\_}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_solver_base_a33442bb69fb93a38ce7c3732e898834d} 
+template$<$typename Derived, typename System$>$ \\
+std\+::function$<$bool(\mbox{\hyperlink{class_control_toolbox_1_1_solver_base_a8455bd6d5257443567cd2ef2949d52c3}{Time\+Type}}, const \mbox{\hyperlink{class_control_toolbox_1_1_solver_base_ab24a6d285bf873fb49e45f898ad64604}{State\+Vector}}\&)$>$ \mbox{\hyperlink{class_control_toolbox_1_1_solver_base}{Control\+Toolbox\+::\+Solver\+Base}}$<$ Derived, System $>$\+::stop\+\_\+condition\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Custom stop condition. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/control\+\_\+toolbox/solvers/\mbox{\hyperlink{_solver_base_8hpp}{Solver\+Base.\+hpp}}\end{DoxyCompactItemize}

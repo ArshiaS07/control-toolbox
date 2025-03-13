@@ -1,0 +1,130 @@
+\doxysection{Control\+Toolbox\+::detail\+::State\+Space\+System\+Impl\texorpdfstring{$<$}{<} Derived, Traits, true, true \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4}{}\label{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4}\index{ControlToolbox::detail::StateSpaceSystemImpl$<$ Derived, Traits, true, true $>$@{ControlToolbox::detail::StateSpaceSystemImpl$<$ Derived, Traits, true, true $>$}}
+
+
+{\ttfamily \#include $<$State\+Space\+System.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{Indent}\textbf{ System Types}\par
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a10e32af3790f47823a00f35d99862794}{State\+Vector}} = typename Traits\+::\+State\+Vector
+\begin{DoxyCompactList}\small\item\em State vector type. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a053c3cc3907e4d150508b230f26ba842}{Input\+Vector}}
+\begin{DoxyCompactList}\small\item\em Input vector type. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a31be8c4ab8c4010b3bc224c32aab1ba2}{Output\+Vector}}
+\begin{DoxyCompactList}\small\item\em Output vector type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a31be8c4ab8c4010b3bc224c32aab1ba2}{Output\+Vector}} \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a13f0e3fda1c07acfb808b8534f7bd302}{compute\+Reference}} (double t) const
+\begin{DoxyCompactList}\small\item\em Compute reference signal for tracking control. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a053c3cc3907e4d150508b230f26ba842}{Input\+Vector}} \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_af43b3bbb5156248184550b5fd0352088}{compute\+Controller}} (double t, const \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a31be8c4ab8c4010b3bc224c32aab1ba2}{Output\+Vector}} \&ref, const \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a31be8c4ab8c4010b3bc224c32aab1ba2}{Output\+Vector}} \&out, const \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a10e32af3790f47823a00f35d99862794}{State\+Vector}} \&x) const
+\begin{DoxyCompactList}\small\item\em Compute control signal using output feedback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a053c3cc3907e4d150508b230f26ba842}\index{ControlToolbox::detail::StateSpaceSystemImpl$<$ Derived, Traits, true, true $>$@{ControlToolbox::detail::StateSpaceSystemImpl$<$ Derived, Traits, true, true $>$}!InputVector@{InputVector}}
+\index{InputVector@{InputVector}!ControlToolbox::detail::StateSpaceSystemImpl$<$ Derived, Traits, true, true $>$@{ControlToolbox::detail::StateSpaceSystemImpl$<$ Derived, Traits, true, true $>$}}
+\doxysubsubsection{\texorpdfstring{InputVector}{InputVector}}
+{\footnotesize\ttfamily \label{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a053c3cc3907e4d150508b230f26ba842} 
+template$<$typename Derived, typename Traits$>$ \\
+using \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl}{Control\+Toolbox\+::detail\+::\+State\+Space\+System\+Impl}}$<$ Derived, Traits, true, true $>$\+::\+Input\+Vector}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \textcolor{keyword}{typename}\ Traits::template\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{InputVector}}<}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Traits::InputDimension>}
+
+\end{DoxyCode}
+
+
+Input vector type. 
+
+\Hypertarget{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a31be8c4ab8c4010b3bc224c32aab1ba2}\index{ControlToolbox::detail::StateSpaceSystemImpl$<$ Derived, Traits, true, true $>$@{ControlToolbox::detail::StateSpaceSystemImpl$<$ Derived, Traits, true, true $>$}!OutputVector@{OutputVector}}
+\index{OutputVector@{OutputVector}!ControlToolbox::detail::StateSpaceSystemImpl$<$ Derived, Traits, true, true $>$@{ControlToolbox::detail::StateSpaceSystemImpl$<$ Derived, Traits, true, true $>$}}
+\doxysubsubsection{\texorpdfstring{OutputVector}{OutputVector}}
+{\footnotesize\ttfamily \label{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a31be8c4ab8c4010b3bc224c32aab1ba2} 
+template$<$typename Derived, typename Traits$>$ \\
+using \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl}{Control\+Toolbox\+::detail\+::\+State\+Space\+System\+Impl}}$<$ Derived, Traits, true, true $>$\+::\+Output\+Vector}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \textcolor{keyword}{typename}\ Traits::template\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{OutputVector}}<}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Traits::OutputDimension>}
+
+\end{DoxyCode}
+
+
+Output vector type. 
+
+\Hypertarget{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a10e32af3790f47823a00f35d99862794}\index{ControlToolbox::detail::StateSpaceSystemImpl$<$ Derived, Traits, true, true $>$@{ControlToolbox::detail::StateSpaceSystemImpl$<$ Derived, Traits, true, true $>$}!StateVector@{StateVector}}
+\index{StateVector@{StateVector}!ControlToolbox::detail::StateSpaceSystemImpl$<$ Derived, Traits, true, true $>$@{ControlToolbox::detail::StateSpaceSystemImpl$<$ Derived, Traits, true, true $>$}}
+\doxysubsubsection{\texorpdfstring{StateVector}{StateVector}}
+{\footnotesize\ttfamily \label{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a10e32af3790f47823a00f35d99862794} 
+template$<$typename Derived, typename Traits$>$ \\
+using \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl}{Control\+Toolbox\+::detail\+::\+State\+Space\+System\+Impl}}$<$ Derived, Traits, true, true $>$\+::\+State\+Vector = typename Traits\+::\+State\+Vector}
+
+
+
+State vector type. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_af43b3bbb5156248184550b5fd0352088}\index{ControlToolbox::detail::StateSpaceSystemImpl$<$ Derived, Traits, true, true $>$@{ControlToolbox::detail::StateSpaceSystemImpl$<$ Derived, Traits, true, true $>$}!computeController@{computeController}}
+\index{computeController@{computeController}!ControlToolbox::detail::StateSpaceSystemImpl$<$ Derived, Traits, true, true $>$@{ControlToolbox::detail::StateSpaceSystemImpl$<$ Derived, Traits, true, true $>$}}
+\doxysubsubsection{\texorpdfstring{computeController()}{computeController()}}
+{\footnotesize\ttfamily \label{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_af43b3bbb5156248184550b5fd0352088} 
+template$<$typename Derived, typename Traits$>$ \\
+\mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a053c3cc3907e4d150508b230f26ba842}{Input\+Vector}} \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl}{Control\+Toolbox\+::detail\+::\+State\+Space\+System\+Impl}}$<$ Derived, Traits, true, true $>$\+::compute\+Controller (\begin{DoxyParamCaption}\item[{double}]{t}{, }\item[{const \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a31be8c4ab8c4010b3bc224c32aab1ba2}{Output\+Vector}} \&}]{ref}{, }\item[{const \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a31be8c4ab8c4010b3bc224c32aab1ba2}{Output\+Vector}} \&}]{out}{, }\item[{const \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a10e32af3790f47823a00f35d99862794}{State\+Vector}} \&}]{x}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Compute control signal using output feedback. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em t} & Current simulation time \\
+\hline
+\mbox{\texttt{ in}}  & {\em ref} & Current reference signal \\
+\hline
+\mbox{\texttt{ in}}  & {\em out} & System output measurement \\
+\hline
+\mbox{\texttt{ in}}  & {\em x} & Current state vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a053c3cc3907e4d150508b230f26ba842}{Input\+Vector} Control signal
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Derived classes must implement compute\+Controller\+\_\+impl 
+\end{DoxyNote}
+\Hypertarget{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a13f0e3fda1c07acfb808b8534f7bd302}\index{ControlToolbox::detail::StateSpaceSystemImpl$<$ Derived, Traits, true, true $>$@{ControlToolbox::detail::StateSpaceSystemImpl$<$ Derived, Traits, true, true $>$}!computeReference@{computeReference}}
+\index{computeReference@{computeReference}!ControlToolbox::detail::StateSpaceSystemImpl$<$ Derived, Traits, true, true $>$@{ControlToolbox::detail::StateSpaceSystemImpl$<$ Derived, Traits, true, true $>$}}
+\doxysubsubsection{\texorpdfstring{computeReference()}{computeReference()}}
+{\footnotesize\ttfamily \label{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a13f0e3fda1c07acfb808b8534f7bd302} 
+template$<$typename Derived, typename Traits$>$ \\
+\mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a31be8c4ab8c4010b3bc224c32aab1ba2}{Output\+Vector}} \mbox{\hyperlink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl}{Control\+Toolbox\+::detail\+::\+State\+Space\+System\+Impl}}$<$ Derived, Traits, true, true $>$\+::compute\+Reference (\begin{DoxyParamCaption}\item[{double}]{t}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Compute reference signal for tracking control. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em t} & Current simulation time (seconds) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_control_toolbox_1_1detail_1_1_state_space_system_impl_3_01_derived_00_01_traits_00_01true_00_01true_01_4_a31be8c4ab8c4010b3bc224c32aab1ba2}{Output\+Vector} Reference signal
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Must be implemented in derived class 
+\end{DoxyNote}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/control\+\_\+toolbox/\mbox{\hyperlink{_state_space_system_8hpp}{State\+Space\+System.\+hpp}}\end{DoxyCompactItemize}

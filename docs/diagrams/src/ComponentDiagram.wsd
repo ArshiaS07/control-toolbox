@@ -1,0 +1,37 @@
+@startuml Component Diagram
+title Component Diagram
+component "SystemTraits" as ST {
+    [Dimension Config]
+    [Type Aliases]
+}
+
+component "StateSpaceSystem" as SSS {
+    [Dynamics]
+    [Controller]
+    [Signal Chain]
+}
+
+component "Solver" as SOLV {
+    component "SolverBase" as SB
+    component "RK4Solver" as RK4
+    component "EulerSolver" as EUL
+}
+
+component "Simulation" as SIM {
+    [Time Stepping]
+    [Orchestration]
+}
+
+component "Logger" as LOG {
+    [Data Recording]
+    [CSV Export]
+}
+
+ST --> SSS : Configures
+SSS --> LOG : Logs Data
+SOLV --> SIM : Used by
+SIM --> SSS : Manages
+SIM --> SOLV : Executes
+SB <|-- RK4
+SB <|-- EUL
+@enduml

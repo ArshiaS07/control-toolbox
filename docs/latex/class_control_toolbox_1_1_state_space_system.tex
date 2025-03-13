@@ -1,0 +1,359 @@
+\doxysection{Control\+Toolbox\+::State\+Space\+System\texorpdfstring{$<$}{<} Derived, Traits \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_control_toolbox_1_1_state_space_system}{}\label{class_control_toolbox_1_1_state_space_system}\index{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}}
+
+
+CRTP base class for state-\/space control system implementations.  
+
+
+
+
+{\ttfamily \#include $<$State\+Space\+System.\+hpp$>$}
+
+Inheritance diagram for Control\+Toolbox\+::State\+Space\+System\texorpdfstring{$<$}{<} Derived, Traits \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.924399cm]{class_control_toolbox_1_1_state_space_system}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{Indent}\textbf{ System Types}\par
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} = typename Traits\+::\+State\+Vector
+\begin{DoxyCompactList}\small\item\em State vector type. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{Input\+Vector}}
+\begin{DoxyCompactList}\small\item\em Input vector type. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Output\+Vector}}
+\begin{DoxyCompactList}\small\item\em Output vector type. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aa175a8de5b4a15f62e81ea2c5f184ae9}{Logger\+Type}} = \mbox{\hyperlink{class_control_toolbox_1_1_system_logger}{System\+Logger}}$<$Traits$>$
+\begin{DoxyCompactList}\small\item\em Data logger type. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_af3058af1705c69517e8c363f3db1c885}{Parameters}} = typename Traits\+::\+Parameters
+\begin{DoxyCompactList}\small\item\em System parameters type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_ae4ca1b8a65c6480128d42090db60a9bc}{compute\+Dynamics}} (double t, const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} \&x, const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{Input\+Vector}} \&u) const
+\begin{DoxyCompactList}\small\item\em Compute system dynamics (dx/dt = f(t, x, u)) \end{DoxyCompactList}\item 
+{\footnotesize template$<$bool B = Traits\+::\+Has\+Output, typename = std\+::enable\+\_\+if\+\_\+t$<$\+B$>$$>$ }\\\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Output\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a2bff38212e8217e888d8fb822899ae07}{compute\+Output}} (double t, const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} \&x, const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{Input\+Vector}} \&u) const
+\begin{DoxyCompactList}\small\item\em Compute system output (y = g(t, x, u)) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9ab7f10d35bd15c5ea88ef0817c9433f}{compute\+System\+Derivative}} (double t, const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} \&x, bool log=true)
+\begin{DoxyCompactList}\small\item\em Execute complete simulation step with signal processing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Data Access}\par
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aa175a8de5b4a15f62e81ea2c5f184ae9}{Logger\+Type}} \& \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_ad8b7b967af767352d57ee214332d45d6}{get\+Logger}} () const
+\begin{DoxyCompactList}\small\item\em Access system logger (const version) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aa175a8de5b4a15f62e81ea2c5f184ae9}{Logger\+Type}} \& \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a7a29498b6646ca722389483041ec6780}{get\+Logger}} ()
+\begin{DoxyCompactList}\small\item\em Access system logger (mutable version) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Protected Member Functions}
+\begin{Indent}\textbf{ Signal Processing Hooks}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Output\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_acb64e0b82494c4ea6b7f462d636ca129}{add\+Output\+Noise}} (const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Output\+Vector}} \&y, double) const
+\begin{DoxyCompactList}\small\item\em Add output measurement noise. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{Input\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a560d9650e3cbd50988e2ae56cd1f4f8f}{add\+Input\+Disturbance}} (const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{Input\+Vector}} \&u, double) const
+\begin{DoxyCompactList}\small\item\em Add input disturbances. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_af3058af1705c69517e8c363f3db1c885}{Parameters}} \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_ae3c34c1ab7ee4face2617bb640e64f4d}{parameters\+\_\+}}
+\begin{DoxyCompactList}\small\item\em System parameter storage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Derived, typename Traits$>$\newline
+class Control\+Toolbox\+::\+State\+Space\+System$<$ Derived, Traits $>$}
+CRTP base class for state-\/space control system implementations. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Derived} & Concrete system implementation (CRTP derived class) \\
+\hline
+{\em Traits} & System traits defining dimensions and types (System\+Traits-\/based)\\
+\hline
+\end{DoxyTemplParams}
+Provides complete signal processing chain\+:
+\begin{DoxyItemize}
+\item Reference generation
+\item Control computation
+\item Disturbance injection
+\item Dynamics calculation
+\item Output processing
+\item Data logging
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Derived classes must implement\+:
+\begin{DoxyItemize}
+\item compute\+Dynamics\+\_\+impl()
+\item compute\+Controller\+\_\+impl()
+\item compute\+Reference\+\_\+impl() (if Has\+Output)
+\item Other optional \+\_\+impl methods as needed 
+\end{DoxyItemize}
+\end{DoxyNote}
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}\index{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}!InputVector@{InputVector}}
+\index{InputVector@{InputVector}!ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}}
+\doxysubsubsection{\texorpdfstring{InputVector}{InputVector}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc} 
+template$<$typename Derived, typename Traits$>$ \\
+using \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system}{Control\+Toolbox\+::\+State\+Space\+System}}$<$ Derived, Traits $>$\+::\+Input\+Vector}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \textcolor{keyword}{typename}\ Traits::template\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{InputVector}}<}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ Traits::InputDimension>}
+
+\end{DoxyCode}
+
+
+Input vector type. 
+
+\Hypertarget{class_control_toolbox_1_1_state_space_system_aa175a8de5b4a15f62e81ea2c5f184ae9}\index{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}!LoggerType@{LoggerType}}
+\index{LoggerType@{LoggerType}!ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}}
+\doxysubsubsection{\texorpdfstring{LoggerType}{LoggerType}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_state_space_system_aa175a8de5b4a15f62e81ea2c5f184ae9} 
+template$<$typename Derived, typename Traits$>$ \\
+using \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system}{Control\+Toolbox\+::\+State\+Space\+System}}$<$ Derived, Traits $>$\+::\+Logger\+Type = \mbox{\hyperlink{class_control_toolbox_1_1_system_logger}{System\+Logger}}$<$Traits$>$}
+
+
+
+Data logger type. 
+
+\Hypertarget{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}\index{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}!OutputVector@{OutputVector}}
+\index{OutputVector@{OutputVector}!ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}}
+\doxysubsubsection{\texorpdfstring{OutputVector}{OutputVector}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67} 
+template$<$typename Derived, typename Traits$>$ \\
+using \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system}{Control\+Toolbox\+::\+State\+Space\+System}}$<$ Derived, Traits $>$\+::\+Output\+Vector}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \textcolor{keyword}{typename}\ Traits::template\ \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{OutputVector}}<}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ Traits::OutputDimension>}
+
+\end{DoxyCode}
+
+
+Output vector type. 
+
+\Hypertarget{class_control_toolbox_1_1_state_space_system_af3058af1705c69517e8c363f3db1c885}\index{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}!Parameters@{Parameters}}
+\index{Parameters@{Parameters}!ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}}
+\doxysubsubsection{\texorpdfstring{Parameters}{Parameters}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_state_space_system_af3058af1705c69517e8c363f3db1c885} 
+template$<$typename Derived, typename Traits$>$ \\
+using \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system}{Control\+Toolbox\+::\+State\+Space\+System}}$<$ Derived, Traits $>$\+::\+Parameters = typename Traits\+::\+Parameters}
+
+
+
+System parameters type. 
+
+\Hypertarget{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}\index{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}!StateVector@{StateVector}}
+\index{StateVector@{StateVector}!ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}}
+\doxysubsubsection{\texorpdfstring{StateVector}{StateVector}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6} 
+template$<$typename Derived, typename Traits$>$ \\
+using \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system}{Control\+Toolbox\+::\+State\+Space\+System}}$<$ Derived, Traits $>$\+::\+State\+Vector = typename Traits\+::\+State\+Vector}
+
+
+
+State vector type. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_control_toolbox_1_1_state_space_system_a560d9650e3cbd50988e2ae56cd1f4f8f}\index{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}!addInputDisturbance@{addInputDisturbance}}
+\index{addInputDisturbance@{addInputDisturbance}!ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}}
+\doxysubsubsection{\texorpdfstring{addInputDisturbance()}{addInputDisturbance()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_state_space_system_a560d9650e3cbd50988e2ae56cd1f4f8f} 
+template$<$typename Derived, typename Traits$>$ \\
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{Input\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system}{Control\+Toolbox\+::\+State\+Space\+System}}$<$ Derived, Traits $>$\+::add\+Input\+Disturbance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{Input\+Vector}} \&}]{u}{, }\item[{double}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Add input disturbances. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em u} & Nominal control input \\
+\hline
+\mbox{\texttt{ in}}  & {\em t} & Current simulation time \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{Input\+Vector} Disturbed input
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Default implementation returns nominal input. Override in derived class to add disturbance models 
+\end{DoxyNote}
+\Hypertarget{class_control_toolbox_1_1_state_space_system_acb64e0b82494c4ea6b7f462d636ca129}\index{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}!addOutputNoise@{addOutputNoise}}
+\index{addOutputNoise@{addOutputNoise}!ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}}
+\doxysubsubsection{\texorpdfstring{addOutputNoise()}{addOutputNoise()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_state_space_system_acb64e0b82494c4ea6b7f462d636ca129} 
+template$<$typename Derived, typename Traits$>$ \\
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Output\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system}{Control\+Toolbox\+::\+State\+Space\+System}}$<$ Derived, Traits $>$\+::add\+Output\+Noise (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Output\+Vector}} \&}]{y}{, }\item[{double}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Add output measurement noise. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em y} & Clean output vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em t} & Current simulation time \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Output\+Vector} Noisy output
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Default implementation returns clean output. Override in derived class to add noise models 
+\end{DoxyNote}
+\Hypertarget{class_control_toolbox_1_1_state_space_system_ae4ca1b8a65c6480128d42090db60a9bc}\index{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}!computeDynamics@{computeDynamics}}
+\index{computeDynamics@{computeDynamics}!ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}}
+\doxysubsubsection{\texorpdfstring{computeDynamics()}{computeDynamics()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_state_space_system_ae4ca1b8a65c6480128d42090db60a9bc} 
+template$<$typename Derived, typename Traits$>$ \\
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system}{Control\+Toolbox\+::\+State\+Space\+System}}$<$ Derived, Traits $>$\+::compute\+Dynamics (\begin{DoxyParamCaption}\item[{double}]{t}{, }\item[{const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} \&}]{x}{, }\item[{const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{Input\+Vector}} \&}]{u}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Compute system dynamics (dx/dt = f(t, x, u)) 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em t} & Current simulation time \\
+\hline
+\mbox{\texttt{ in}}  & {\em x} & Current state vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em u} & Current input vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector} State derivative vector
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Pure virtual in derived classes via compute\+Dynamics\+\_\+impl() 
+\end{DoxyNote}
+\Hypertarget{class_control_toolbox_1_1_state_space_system_a2bff38212e8217e888d8fb822899ae07}\index{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}!computeOutput@{computeOutput}}
+\index{computeOutput@{computeOutput}!ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}}
+\doxysubsubsection{\texorpdfstring{computeOutput()}{computeOutput()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_state_space_system_a2bff38212e8217e888d8fb822899ae07} 
+template$<$typename Derived, typename Traits$>$ \\
+template$<$bool B = Traits\+::\+Has\+Output, typename = std\+::enable\+\_\+if\+\_\+t$<$\+B$>$$>$ \\
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Output\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system}{Control\+Toolbox\+::\+State\+Space\+System}}$<$ Derived, Traits $>$\+::compute\+Output (\begin{DoxyParamCaption}\item[{double}]{t}{, }\item[{const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} \&}]{x}{, }\item[{const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aaf3f388f24815cafecd7c91692682dcc}{Input\+Vector}} \&}]{u}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Compute system output (y = g(t, x, u)) 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em B} & SFINAE enabler for output capability \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em t} & Current simulation time \\
+\hline
+\mbox{\texttt{ in}}  & {\em x} & Current state vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em u} & Current input vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_control_toolbox_1_1_state_space_system_a9caf26714ef9b848c803c9c29aab7e67}{Output\+Vector} System output
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+System must have outputs (Traits\+::\+Has\+Output == true) 
+\end{DoxyPrecond}
+\Hypertarget{class_control_toolbox_1_1_state_space_system_a9ab7f10d35bd15c5ea88ef0817c9433f}\index{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}!computeSystemDerivative@{computeSystemDerivative}}
+\index{computeSystemDerivative@{computeSystemDerivative}!ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}}
+\doxysubsubsection{\texorpdfstring{computeSystemDerivative()}{computeSystemDerivative()}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_state_space_system_a9ab7f10d35bd15c5ea88ef0817c9433f} 
+template$<$typename Derived, typename Traits$>$ \\
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system}{Control\+Toolbox\+::\+State\+Space\+System}}$<$ Derived, Traits $>$\+::compute\+System\+Derivative (\begin{DoxyParamCaption}\item[{double}]{t}{, }\item[{const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector}} \&}]{x}{, }\item[{bool}]{log}{ = {\ttfamily true}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Execute complete simulation step with signal processing. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em t} & Current simulation time \\
+\hline
+\mbox{\texttt{ in}}  & {\em x} & Current state vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em log} & Enable data logging (default\+: true) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_control_toolbox_1_1_state_space_system_a615ca64f1f1e25df92c85c75bc5493b6}{State\+Vector} State derivative vector
+\end{DoxyReturn}
+Implements full signal processing chain\+:
+\begin{DoxyEnumerate}
+\item Reference signal generation (if Has\+Output)
+\item Previous output handling (one-\/step delay)
+\item Measurement noise injection (if Has\+Output)
+\item Control signal computation (if Has\+Input)
+\item Input disturbance injection (if Has\+Input)
+\item System dynamics calculation
+\item Output update for next step (if Has\+Output)
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Note}
+Uses CRTP pattern to delegate implementation to derived class 
+\end{DoxyNote}
+\Hypertarget{class_control_toolbox_1_1_state_space_system_a7a29498b6646ca722389483041ec6780}\index{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}!getLogger@{getLogger}}
+\index{getLogger@{getLogger}!ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}}
+\doxysubsubsection{\texorpdfstring{getLogger()}{getLogger()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_state_space_system_a7a29498b6646ca722389483041ec6780} 
+template$<$typename Derived, typename Traits$>$ \\
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aa175a8de5b4a15f62e81ea2c5f184ae9}{Logger\+Type}} \& \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system}{Control\+Toolbox\+::\+State\+Space\+System}}$<$ Derived, Traits $>$\+::get\+Logger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Access system logger (mutable version) 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{class_control_toolbox_1_1_state_space_system_aa175a8de5b4a15f62e81ea2c5f184ae9}{Logger\+Type}\& Mutable logger reference 
+\end{DoxyReturn}
+\Hypertarget{class_control_toolbox_1_1_state_space_system_ad8b7b967af767352d57ee214332d45d6}\index{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}!getLogger@{getLogger}}
+\index{getLogger@{getLogger}!ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}}
+\doxysubsubsection{\texorpdfstring{getLogger()}{getLogger()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_state_space_system_ad8b7b967af767352d57ee214332d45d6} 
+template$<$typename Derived, typename Traits$>$ \\
+const \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_aa175a8de5b4a15f62e81ea2c5f184ae9}{Logger\+Type}} \& \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system}{Control\+Toolbox\+::\+State\+Space\+System}}$<$ Derived, Traits $>$\+::get\+Logger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Access system logger (const version) 
+
+\begin{DoxyReturn}{Returns}
+const \doxylink{class_control_toolbox_1_1_state_space_system_aa175a8de5b4a15f62e81ea2c5f184ae9}{Logger\+Type}\& Immutable logger reference 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_control_toolbox_1_1_state_space_system_ae3c34c1ab7ee4face2617bb640e64f4d}\index{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}!parameters\_@{parameters\_}}
+\index{parameters\_@{parameters\_}!ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$@{ControlToolbox::StateSpaceSystem$<$ Derived, Traits $>$}}
+\doxysubsubsection{\texorpdfstring{parameters\_}{parameters\_}}
+{\footnotesize\ttfamily \label{class_control_toolbox_1_1_state_space_system_ae3c34c1ab7ee4face2617bb640e64f4d} 
+template$<$typename Derived, typename Traits$>$ \\
+\mbox{\hyperlink{class_control_toolbox_1_1_state_space_system_af3058af1705c69517e8c363f3db1c885}{Parameters}} \mbox{\hyperlink{class_control_toolbox_1_1_state_space_system}{Control\+Toolbox\+::\+State\+Space\+System}}$<$ Derived, Traits $>$\+::parameters\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+System parameter storage. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/control\+\_\+toolbox/\mbox{\hyperlink{_state_space_system_8hpp}{State\+Space\+System.\+hpp}}\end{DoxyCompactItemize}
